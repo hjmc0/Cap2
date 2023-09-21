@@ -12,11 +12,10 @@ public class AddAccount {
                 boolean more = true;
                
                 try {
-                        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "shurui99", "pass");
+                        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "john", "pass");
                         System.out.println("Connection Established");
                         assert conn != null : "No connection";
                         Statement stmt = conn.createStatement();
-
                         
                         
                         while (more) {

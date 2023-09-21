@@ -20,7 +20,7 @@ public class ViewAccount {
     public void viewDetails() {
         Connection conn;
         try {
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "shurui99", "pass");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "john", "pass");
             assert conn != null : "No Connection";
             PreparedStatement pstmt = conn.prepareStatement("select * from Account where aid = ?");
             pstmt.setInt(1, getAid());
@@ -64,7 +64,7 @@ public class ViewAccount {
 
     //for testing
     public static void main(String[] args) {
-        ViewAccount acc = new ViewAccount(2);
+        ViewAccount acc = new ViewAccount(1);
         acc.viewDetails();
         acc.viewPastTransactions();
     }
