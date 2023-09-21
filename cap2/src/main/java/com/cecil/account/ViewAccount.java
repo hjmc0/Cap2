@@ -42,7 +42,7 @@ public class ViewAccount {
     public void viewPastTransactions() {
         Connection conn;
         try {
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "shurui99", "pass");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "john", "pass");
             assert conn != null : "No Connection";
             PreparedStatement pstmt = conn.prepareStatement("select * from Transaction where aid = ?");
             pstmt.setInt(1, getAid());
