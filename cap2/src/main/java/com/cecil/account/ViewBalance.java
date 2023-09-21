@@ -8,30 +8,27 @@ import java.sql.SQLException;
 
 import connection.Connections;
 
-public class ViewAccount {
-    private int aid;
-
-    public ViewAccount(int aid) {
-        this.aid = aid;
-    }
-
-    public int getAid() {
-        return aid;
-    }
-
-    public void viewDetails() {
+public class ViewBalance {
+    
+    public static void view(int aid) {
         try {
             PreparedStatement pstmt = Connections.openConn().prepareStatement("select * from Account where aid = ?");
-            pstmt.setInt(1, getAid());
+            pstmt.setInt(1, aid);
             ResultSet r = pstmt.executeQuery();
 
-            System.out.println("================ ACCOUNT DETAILS ==============");
+            boolean exist = false;
+            System.out.println("================ ACCOUNT BALANCE DETAILS ==============");
             while (r.next()) {
+                exist = true;
                 System.out.println("Account ID      : " + r.getInt("aid"));
                 System.out.println("Account Name    : " + r.getString("aname"));
                 System.out.println("Account Balance : " + r.getInt("balance"));
             }
-            System.out.println("===============================================");
+            System.out.println("======================================================");
+
+            if(!exist){
+                System.out.println("Account ID "+ aid +" does not exist");
+            }
         } catch (SQLException se) {
             System.out.println(se.getMessage());
         } finally {
@@ -39,6 +36,7 @@ public class ViewAccount {
         }
     }
 
+    // move to transaction.java later
     public void viewPastTransactions() {
         Connection conn;
         try {
@@ -61,13 +59,6 @@ public class ViewAccount {
         } catch (SQLException se) {
             System.out.println(se.getMessage());
         }
-    }
-
-    // for testing
-    public static void main(String[] args) {
-        ViewAccount acc = new ViewAccount(1);
-        acc.viewDetails();
-        acc.viewPastTransactions();
     }
 
 }

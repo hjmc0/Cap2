@@ -1,34 +1,66 @@
 package com.cecil.account;
 
-public class ApplicationManager {
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Scanner;
 
-    public void execute(String operation){
-        switch(operation) {
+import com.cecil.Application;
+
+public class ApplicationManager {
+    public void execute(String operation) {
+        operation = operation.toLowerCase();
+
+        switch (operation) {
             case "add":
-              
-              break;
+                System.out.print("Enter New Account Number: ");
+                int aid = Application.scan.nextInt();
+                Application.scan.nextLine();
+                System.out.print("Enter Account Holder's Name: ");
+                String aname = Application.scan.nextLine();
+                int bal = 0; // set default as $0
+
+                AddAccount.add(aid, aname, bal);
+
+                break;
+
             case "view":
-              // code block
-              break;
+                ViewAllAccounts.view();
+                break;
+
             case "modify":
-              
-              break;
+                System.out.println("Enter Account ID: ");
+                int mod_aid = Application.scan.nextInt();
+                System.out.println("Enter Field to edit: ");
+                String field = Application.scan.nextLine();
+                System.out.println("Enter new value for " + field + ": ");
+                String new_val = Application.scan.nextLine();
+
+                break;
+
             case "close":
-              
-              break;
+
+                break;
+
             case "deposit":
-              
-              break;
+
+                break;
             case "withdraw":
-              
-              break;
+
+                break;
+
             case "viewbal":
-              
-              break;
+                System.out.print("Enter Account ID: ");
+                int bal_aid = Application.scan.nextInt();
+                Application.scan.nextLine();
+                ViewBalance.view(bal_aid);
+                break;
+
             default:
-              // code block
-          }
+                // code block
+        }
 
     }
-}
 
+}
