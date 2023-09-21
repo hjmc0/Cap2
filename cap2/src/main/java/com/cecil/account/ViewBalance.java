@@ -43,7 +43,7 @@ public class ViewBalance {
             conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "shurui99", "pass");
             assert conn != null : "No Connection";
             PreparedStatement pstmt = conn.prepareStatement("select * from Transaction where aid = ?");
-            pstmt.setInt(1, getAid());
+            pstmt.setInt(1, 2);
             ResultSet r = pstmt.executeQuery();
 
             System.out.println("================ TRANSACTION DETAILS ==============");
