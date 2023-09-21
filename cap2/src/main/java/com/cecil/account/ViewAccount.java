@@ -65,7 +65,7 @@ public class ViewAccount {
 
     // for testing
     public static void main(String[] args) {
-        ViewAccount acc = new ViewAccount(2);
+        ViewAccount acc = new ViewAccount(1);
         acc.viewDetails();
         acc.viewPastTransactions();
     }
