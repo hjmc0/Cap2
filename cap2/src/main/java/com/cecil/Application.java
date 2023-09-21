@@ -1,9 +1,13 @@
 package com.cecil;
+
 import java.util.Scanner;
+
+import com.cecil.account.ApplicationManager;
 
 public class Application {
     static boolean toContinue = true;
-    static Scanner scan;
+    public static Scanner scan;
+
     public static void main(String[] args) {
         while (toContinue) {
             System.out.println("Please select from the following options");
@@ -17,58 +21,68 @@ public class Application {
             System.out.println("7. View Balance");
             System.out.println("8. View Transaction History");
             System.out.println("9. Exit");
-        
+
             scan = new Scanner(System.in);
             int choice = scan.nextInt();
+            scan.nextLine();
+            //scan.close();
+            ApplicationManager appmgr = new ApplicationManager();
 
             switch (choice) {
-            case 1:
-                System.out.println("1");
-                break;
+                case 1:
+                    appmgr.execute("add");
+                    break;
 
-            case 2:
-                System.out.println("2");
-                break;
+                case 2:
+                    appmgr.execute("view");
+                    break;
 
-            case 3:
-                System.out.println("3");
-                break;
+                case 3:
+                    appmgr.execute("modify");
+                    break;
 
-            case 4:
-                System.out.println("4");
-                break;
+                case 4:
+                    appmgr.execute("close");
+                    break;
 
-            case 5:
-                System.out.println("5");
-                break;
+                case 5:
+                    appmgr.execute("deposit");
+                    break;
 
-            case 6:
-                System.out.println("6");
-                break;
+                case 6:
+                    appmgr.execute("withdraw");
+                    break;
 
-            case 7:
-                System.out.println("7");
-                break;
-                
-            case 8:
-                System.out.println("8");
-                break;
+                case 7:
+                    appmgr.execute("viewbal");
+                    break;
 
-            case 9:
-                System.out.println("9");
-                break;            
-            default:
-                System.out.println("Invalid Choice.");
+                case 8:
+                    appmgr.execute("viewtranshist");
+                    break;
+
+                case 9:
+                    toContinue = false;
+                    break;
+                default:
+                    System.out.println("Invalid Choice.");
+                    break;
+            }
+
+            if (!toContinue) {
+                System.out.println("hh");
                 break;
             }
-            scan.nextLine();
-            System.out.println("Do you want to continue (y/n): ");
+
+            System.out.print("Do you want to continue (y/n): ");
             String answer = scan.nextLine();
-            if (answer.equalsIgnoreCase("y")){
-                toContinue=true;
+            if (answer.equalsIgnoreCase("y")) {
+                toContinue = true;
             } else {
                 toContinue = false;
             }
         }
+        scan.close();
+        
     }
 }

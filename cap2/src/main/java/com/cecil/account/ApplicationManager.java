@@ -6,31 +6,23 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
+import com.cecil.Application;
+
 public class ApplicationManager {
-    public static void execute(String operation) {
+    public void execute(String operation) {
         operation = operation.toLowerCase();
-        Scanner scan = new Scanner(System.in);
 
         switch (operation) {
             case "add":
-                boolean exit = false;
-                while (!exit) {
-                    System.out.print("Enter New Account Number: ");
-                    int aid = scan.nextInt();
-                    scan.nextLine();
-                    System.out.print("Enter Account Holder's Name: ");
-                    String aname = scan.nextLine();
-                    int bal = 0; // set default as $0
+                System.out.print("Enter New Account Number: ");
+                int aid = Application.scan.nextInt();
+                Application.scan.nextLine();
+                System.out.print("Enter Account Holder's Name: ");
+                String aname = Application.scan.nextLine();
+                int bal = 0; // set default as $0
 
-                    AddAccount.add(aid, aname, bal);
-                    System.out.print("Do you want to create another account? (y/n): ");
-                    String choice = scan.next();
+                AddAccount.add(aid, aname, bal);
 
-                    if (choice.equalsIgnoreCase("n")) {
-                        exit = true;
-                    }
-                }
-                scan.close();
                 break;
 
             case "view":
@@ -39,12 +31,12 @@ public class ApplicationManager {
 
             case "modify":
                 System.out.println("Enter Account ID: ");
-                int aid = scan.nextInt();
+                int mod_aid = Application.scan.nextInt();
                 System.out.println("Enter Field to edit: ");
-                String field = scan.nextLine();
-                System.out.println("Enter new value for "+field+ ": ");
-                String new_val = scan.nextLine();
-                
+                String field = Application.scan.nextLine();
+                System.out.println("Enter new value for " + field + ": ");
+                String new_val = Application.scan.nextLine();
+
                 break;
 
             case "close":
@@ -60,8 +52,8 @@ public class ApplicationManager {
 
             case "viewbal":
                 System.out.print("Enter Account ID: ");
-                int bal_aid = scan.nextInt();
-                scan.nextLine();
+                int bal_aid = Application.scan.nextInt();
+                Application.scan.nextLine();
                 ViewBalance.view(bal_aid);
                 break;
 
@@ -70,7 +62,5 @@ public class ApplicationManager {
         }
 
     }
-    public static void main(String[] args) {
-        ApplicationManager.execute("viewbal");
-    }
+
 }
