@@ -38,9 +38,35 @@ public class ViewAccount {
         }
     }
 
+    public void viewPastTransactions() {
+        Connection conn;
+        try {
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "shurui99", "pass");
+            assert conn != null : "No Connection";
+            PreparedStatement pstmt = conn.prepareStatement("select * from Transaction where aid = ?");
+            pstmt.setInt(1, getAid());
+            ResultSet r = pstmt.executeQuery();
+
+            System.out.println("================ TRANSACTION DETAILS ==============");
+            System.out.println();
+            while (r.next()) {
+                System.out.println("-----------------"+r.getDate("trans_date")+"----------------------");
+                System.out.println("Transaction ID     : "+ r.getInt("trans_id"));
+                System.out.println("Transaction Type   : "+ r.getString("trans_type"));
+                System.out.println("Transaction Amount : "+ r.getInt("Amount"));
+                System.out.println();
+            }
+            System.out.println("===============================================");
+        } catch (SQLException se) {
+            System.out.println(se.getMessage());
+        }
+    }
+
+    //for testing
     public static void main(String[] args) {
         ViewAccount acc = new ViewAccount(2);
         acc.viewDetails();
+        acc.viewPastTransactions();
     }
 
 }
