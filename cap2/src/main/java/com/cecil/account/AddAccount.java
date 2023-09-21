@@ -7,38 +7,48 @@ import java.sql.Statement;
 import java.util.Scanner;
 
 public class AddAccount {
-        
         public static void main(String[] args) {
                 Scanner scan = new Scanner(System.in);
+                boolean more = true;
                
                 try {
                         Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "john", "pass");
+                        System.out.println("Connection Established");
+                        assert conn != null : "No connection";
                         Statement stmt = conn.createStatement();
 
-                        System.out.println("Enter Account Number: ");
-                        int aid = scan.nextLine();
-
-
+                        
+                        
                         while (more) {
-                                String addAcc = "insert into Account( aid, aname, bal)" 
+                                System.out.print("Enter New Account Number: ");
+                                int aid = scan.nextInt();
+                                scan.nextLine();
+                                System.out.print("Enter Account Holder's Name: ");
+                                String aname = scan.nextLine();
+                                int bal = 0; // set default as $0
+
+
+                                String addAcc = "insert into Account( aid, aname, balance)" 
                                                 + "values ("
                                                 + "'"+ aid+ "'"
                                                 + "'"+ aname + "'"
                                                 + "'"+ bal +"')"; 
 
-                                                int rec = stmt.executeUpdate(addAcc);
-                                                System.out.println(rec + " records inserted");
-                                                System.out.print("Enter another record? (y/n): ");
-                                                String choice = scan.next();
-                                                if (choice.equalsIgnoreCase("n")){
-                                                    more = false;
-                                                }
+                                stmt.executeUpdate(addAcc);
+                                System.out.println("Account: " + aid + " has been created for " + aname + ". CURRENT BALANCE IN ACCOUNT: $" + bal);
+                                System.out.print("Do you want to create another account? (y/n): ");
+                                String choice = scan.next();
+                                
+                                if (choice.equalsIgnoreCase("n")){
+                                            more = false;
+                                        }
                         }
 
                 } catch (SQLException e) {
                         
                         e.printStackTrace();
                 }
+                scan.close();
                 
         }
    
