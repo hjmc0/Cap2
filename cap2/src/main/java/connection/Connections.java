@@ -10,7 +10,7 @@ public class Connections {
     static public Connection openConn() {
         try {
             conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl",
-                    "root", "dummy");
+                    "shurui99", "pass");
             assert conn != null : "Connection not successful";
         } catch (SQLException se) {
             se.printStackTrace();
