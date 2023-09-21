@@ -13,7 +13,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-        <dependencies>
+    <dependencies>
         <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc8 -->
 <dependency>
     <groupId>com.oracle.database.jdbc</groupId>
