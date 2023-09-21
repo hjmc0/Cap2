@@ -28,14 +28,18 @@ public class AddAccount {
                                 int bal = 0; // set default as $0
 
 
-                                String addAcc = "insert into Account( aid, aname, balance)" 
+                                String addAcc = "insert into account( aid, aname, balance)" 
                                                 + "values ("
-                                                + "'"+ aid+ "'"
-                                                + "'"+ aname + "'"
-                                                + "'"+ bal +"')"; 
+                                                + ""+ aid+ ","
+                                                + "'"+ aname + "',"
+                                                + ""+ bal +")"; 
 
                                 stmt.executeUpdate(addAcc);
-                                System.out.println("Account: " + aid + " has been created for " + aname + ". CURRENT BALANCE IN ACCOUNT: $" + bal);
+                                System.out.println("=========================ACCOUNT CREATED Successfully!===============================");
+                                System.out.println("Name: "+ aname);
+                                System.out.println("Account No: " + aid);
+                                System.out.println("CURRENT BALANCE IN ACCOUNT: $" + bal);
+                                System.out.println("=====================================================================================");
                                 System.out.print("Do you want to create another account? (y/n): ");
                                 String choice = scan.next();
                                 
