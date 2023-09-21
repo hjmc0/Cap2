@@ -1,7 +1,6 @@
 package com.cecil.account;
 
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import connection.Connections;
@@ -17,8 +16,9 @@ public class ModifyAccount {
             if (field.equalsIgnoreCase("aname")) {
                 PreparedStatement pstmt = Connections.openConn()
                         .prepareStatement("update account set aname = ? where aid = ?");
-                pstmt.setString(1, "Danny");
-                pstmt.setInt(2, 1);
+                pstmt.setString(1, new_val);
+                pstmt.setInt(2, aid);
+                System.out.println(pstmt);
                 int rec = pstmt.executeUpdate();
                 if (rec > 0) {
                     System.out.println("Record updated successfully.");
@@ -32,4 +32,9 @@ public class ModifyAccount {
             Connections.closeConn();
         }
     };
+
+    public static void main(String[] args) {
+        ModifyAccount acc = new ModifyAccount();
+        acc.modifyDetails(123, "aname", "John");
+    }
 }
