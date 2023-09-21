@@ -10,7 +10,7 @@ public class Connections {
     static public Connection openConn() {
         try {
             // conn depends on whether you're using mysql or oracledb
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cap2", "root", "dummy");
+            // conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cap2", "root", "dummy");
             // conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","root", "dummy");
             conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl",
                     "shurui99", "pass");
