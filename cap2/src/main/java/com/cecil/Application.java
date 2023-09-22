@@ -74,7 +74,7 @@ public class Application {
                 break;
             }
 
-            System.out.print("Do you want to continue (y/n): ");
+            System.out.print("Do you want to select another option? (y/n): ");
             String answer = scan.nextLine();
             if (answer.equalsIgnoreCase("y")) {
                 toContinue = true;

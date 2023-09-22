@@ -31,12 +31,16 @@ public class ApplicationManager {
                 String field = Application.scan.nextLine();
                 System.out.println("Enter new value for " + field + ": ");
                 String new_val = Application.scan.nextLine();
+
                 ModifyAccount.modifyDetails(mod_aid, field, new_val);
 
                 break;
 
             case "close":
-
+                System.out.print("Enter Account ID to close: ");
+                int del_aid = Application.scan.nextInt();
+                Application.scan.nextLine();
+                DeleteAccount.deleteAccount(del_aid);
                 break;
 
             case "deposit":
