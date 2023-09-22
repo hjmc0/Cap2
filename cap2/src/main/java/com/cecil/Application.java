@@ -48,10 +48,13 @@ public class Application {
             System.out.println("10. Delete Teller");
             System.out.println("11. Exit");
 
-            // scan = new Scanner(System.in);
             int choice = scan.nextInt();
             scan.nextLine();
+<<<<<<< Updated upstream
             // scan.close();
+=======
+
+>>>>>>> Stashed changes
             ApplicationManager appmgr = new ApplicationManager();
             TellerManager tellmgr = new TellerManager();
 

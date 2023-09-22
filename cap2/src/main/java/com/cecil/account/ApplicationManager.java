@@ -57,36 +57,62 @@ public class ApplicationManager {
                 System.out.print("Enter Account ID to close: ");
                 input1 = Application.scan.nextLine();
                 if (!input1.equals("q")) {
-                        try {
-                            int del_aid = Integer.valueOf(input1);
-                            DeleteAccount.deleteAccount(del_aid);
-                        } catch (NumberFormatException ne) {
-                            System.out.println("Invalid Account Number!");
-                        }
+                    try {
+                        int del_aid = Integer.valueOf(input1);
+                        DeleteAccount.deleteAccount(del_aid);
+                    } catch (NumberFormatException ne) {
+                        System.out.println("Invalid Account Number!");
                     }
+                }
                 break;
 
             case "deposit":
+                System.out.println("---------------------------------------------------------------");
+                System.out.println("=========================== DEPOSIT ===========================");
+                System.out.println("---------------------------------------------------------------");
+                System.out.print("Enter the Account ID: ");
+                int deposit_aid = Application.scan.nextInt();
+                Application.scan.nextLine();
 
+                Deposit.depositAmt(deposit_aid);
                 break;
             case "withdraw":
+                System.out.println("---------------------------------------------------------------");
+                System.out.println("=========================== WITHDRAW ===========================");
+                System.out.println("---------------------------------------------------------------");
+                System.out.print("Enter the Account ID: ");
+                int withdraw_aid = Application.scan.nextInt();
+                Application.scan.nextLine();
 
+                Withdraw.WithdrawAmt(withdraw_aid);
+                ;
                 break;
 
             case "viewbal":
                 System.out.print("Enter Account ID: ");
                 input1 = Application.scan.nextLine();
                 if (!input1.equals("q")) {
-                        try {
-                            int view_aid = Integer.valueOf(input1);
-                            ViewBalance.view(view_aid);
-                        } catch (NumberFormatException ne) {
-                            System.out.println("Invalid Account Number!");
-                        }
+                    try {
+                        int view_aid = Integer.valueOf(input1);
+                        ViewBalance.view(view_aid);
+                    } catch (NumberFormatException ne) {
+                        System.out.println("Invalid Account Number!");
                     }
-                
-                break;
+                }
 
+                break;
+            case "viewtranshist":
+                System.out.print("Enter Account ID: ");
+                input1 = Application.scan.nextLine();
+                if (!input1.equals("q")) {
+                    try {
+                        int view_trans_aid = Integer.valueOf(input1);
+                        ViewTransHist.viewPastTransactions(view_trans_aid);
+                    } catch (NumberFormatException ne) {
+                        System.out.println("Invalid Account Number!");
+                    }
+                }
+                break;
             default:
                 // code block
         }
