@@ -11,14 +11,18 @@ public class InitialiseDB {
     public static void dropDB() {
         String dropAcc = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE account'; EXCEPTION WHEN OTHERS THEN NULL; END;";
         String dropTrans = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE transaction'; EXCEPTION WHEN OTHERS THEN NULL; END;";
+        String dropTeller = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE teller'; EXCEPTION WHEN OTHERS THEN NULL; END;";
 
         try {
             pstmt = Connections.openConn().prepareStatement(dropTrans);
             pstmt.execute();
-            System.out.println("Transaction dropped if exist");
+            System.out.println("Transaction table dropped if exist");
             pstmt = Connections.openConn().prepareStatement(dropAcc);
             pstmt.execute();
-            System.out.println("Account dropped if exist");
+            System.out.println("Account table dropped if exist");
+            pstmt = Connections.openConn().prepareStatement(dropTeller);
+            pstmt.execute();
+            System.out.println("Teller table dropped if exist");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -31,13 +35,17 @@ public class InitialiseDB {
     public static void createDB() {
         String createAcc = "create table Account(aid number(3) primary key, aname varchar2(50) not null, balance number(38,2) not null)";
         String createTrans = "create table Transaction(trans_id number(10) primary key, trans_date timestamp not null, trans_type varchar2(10) not null, aid number(3), CONSTRAINT fk_aid FOREIGN KEY (aid) REFERENCES Account(aid) on delete cascade, amount number(38,2) not null)";
+        String createTeller = "create table teller(tname varchar2(6), tpass varchar2(6))";
         try {
             pstmt = Connections.openConn().prepareStatement(createAcc);
             pstmt.execute();
-            System.out.println("Account created");
+            System.out.println("Account table created");
             pstmt = Connections.openConn().prepareStatement(createTrans);
             pstmt.execute();
-            System.out.println("Transaction created");
+            System.out.println("Transaction table created");
+            pstmt = Connections.openConn().prepareStatement(createTeller);
+            pstmt.execute();
+            System.out.println("Teller table created");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
