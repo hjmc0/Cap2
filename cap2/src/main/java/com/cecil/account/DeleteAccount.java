@@ -33,10 +33,11 @@ public class DeleteAccount {
                 System.out.print("Above account will be deleted. Are you sure (y/n) ?????");
                 String choice = Application.scan.nextLine();
                 if (choice.equalsIgnoreCase("y")) {
-                    String deleteAcc = "delete from account where aid = " + aid;
-                    stmt.execute(deleteAcc);
                     String deleteTrans = "delete from transaction where aid = "+aid;
                     stmt.execute(deleteTrans);
+                    String deleteAcc = "delete from account where aid = " + aid;
+                    stmt.execute(deleteAcc);
+                    
                     System.out.println(aname + " (Account ID " + aid + ") and all transaction histories deleted !!");
                 }
             }
