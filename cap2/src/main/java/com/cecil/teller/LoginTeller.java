@@ -1,21 +1,28 @@
-package com.cecil.user;
+package com.cecil.teller;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.cecil.connection.Connections;
 
-public class LoginUser {
+public class LoginTeller {
     static boolean auth = false;
 
-    public static boolean loginUser() {
+    public static boolean login(String tname, String tpass) {
         try {
-            String sql = "insert into user( aid, aname, balance) values(?,?,?)";
+            String sql = "select * from teller where tname = ? and tpass = ?";
             PreparedStatement pstmt = Connections.openConn().prepareStatement(sql);
 
-            if (auth == true) {
+            pstmt.setString(1, tname);
+            pstmt.setString(2, tpass);
+            
+            ResultSet r = pstmt.executeQuery();
+            
+            if(r.next() == true){
                 auth = true;
             }
+
         } catch (SQLException se) {
             System.out.println(se.getMessage());
         } finally {
