@@ -44,11 +44,4 @@ public class DeleteAccount {
             Connections.closeConn();
         }
     }
-<<<<<<< Updated upstream
-
-    public static void main(String[] args) {
-        deleteAccount();
-    }
-=======
->>>>>>> Stashed changes
 }
