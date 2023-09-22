@@ -22,7 +22,7 @@ public class ViewBalance {
                 exist = true;
                 System.out.println("Account ID      : " + r.getInt("aid"));
                 System.out.println("Account Name    : " + r.getString("aname"));
-                System.out.println("Account Balance : " + r.getInt("balance"));
+                System.out.println("Account Balance : " + r.getDouble("balance"));
             }
             System.out.println("======================================================");
 
