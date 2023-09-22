@@ -4,7 +4,7 @@ import com.cecil.Application;
 
 public class TellerManager {
     public void execute(String operation) {
-
+        operation = operation.toLowerCase();
         switch (operation) {
             case "create":
                 System.out.print("Enter New Teller Name: ");

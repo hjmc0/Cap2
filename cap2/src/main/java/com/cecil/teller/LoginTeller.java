@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import com.cecil.connection.Connections;
 
 public class LoginTeller {
-    static boolean auth = false;
+    public static boolean auth = false;
 
     public static boolean login(String tname, String tpass) {
         try {
@@ -21,6 +21,9 @@ public class LoginTeller {
             
             if(r.next() == true){
                 auth = true;
+            } else {
+                System.out.println("Invalid login credentials");
+                System.out.println();
             }
 
         } catch (SQLException se) {
