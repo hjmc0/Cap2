@@ -1,19 +1,16 @@
 package com.cecil.account;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Deposit {
-
-    public void depositAmt() {
+public class Withdraw {
+        public void WithdrawAmt() {
                 Scanner scan = new Scanner(System.in);
                 
                 try {
@@ -33,7 +30,7 @@ public class Deposit {
 
                     while (!aidMatcher){
                         System.out.println("---------------------------------------------------------------");
-                        System.out.println("=========================== DEOPSIT ===========================");
+                        System.out.println("========================== WITHDRAW ==========================");
                         System.out.println("---------------------------------------------------------------");
                         System.out.print("Enter the Account ID: ");
                         int acctID = scan.nextInt();
@@ -55,15 +52,15 @@ public class Deposit {
                             aidMatcher=true;
                             
                             while (sure!=1){
-                                System.out.println("-----------------------------------------------------------");
-                                System.out.print("Enter Deposit Amount: $"); // Entry of deposit amount and calculation
+                                System.out.println("-------------------- CURRENT BALANCE: $" + curBal + " --------------------");
+                                System.out.print("Enter Withdrawal Amount: $"); // Entry of deposit amount and calculation
                                 tempBal = scan.nextDouble();
                                 sure = 0;
                                 
                                 while(sure!=1 && sure!=2){
                                 System.out.println("-----------------------------------------------------------");
-                                System.out.println("Continue to DEPOSIT $"+ tempBal +" into ACCOUNT No.: " + acctID + " ?");
-                                System.out.println("1. To continue deposit");
+                                System.out.println("Continue to WITHDRAW $"+ tempBal +" from ACCOUNT No.: " + acctID + " ?");
+                                System.out.println("1. To continue withdrawal");
                                 System.out.println("2. To change amount");
                                 System.out.print("Select : ");
                                 sure = scan.nextInt();
@@ -73,7 +70,7 @@ public class Deposit {
                                     }
                                 }
                             }
-                            newBal = tempBal + curBal;
+                            newBal = curBal - tempBal;
                             ResultSet trans = stmt1.executeQuery("Select max(trans_id) from transaction");
                             trans.next();
 
@@ -87,7 +84,7 @@ public class Deposit {
                                                                     + " values ("
                                                                     + nextTransId
                                                                     + ", to_timestamp('" + ts + "', 'YYYY-MM-RR HH24:MI:SS.FF'),"
-                                                                    + "'DEPOSIT',"
+                                                                    + "'WITHDRAW',"
                                                                     + acctID + ","
                                                                     + tempBal + ")";
 
@@ -96,10 +93,10 @@ public class Deposit {
 
 
                             System.out.println("===============================================================");
-                            System.out.println("====================== DEPOSIT COMPLETED ======================");
+                            System.out.println("====================== WITHDRAW COMPLETED =====================");
                             System.out.println("ACCOUNT NUMBER            :   " + acctID);
                             System.out.println("ORIGINAL TOTAL BALANCE    : $ " + curBal);
-                            System.out.println("DEPOSITED AMOUNT          : $ " + tempBal);
+                            System.out.println("WITHDRAW AMOUNT          : $ " + tempBal);
                             System.out.println("NEW TOTAL BALANCE         : $ " + newBal);
                             System.out.println("============================END================================");
 
@@ -119,15 +116,4 @@ public class Deposit {
                 }
                 scan.close();   
             }
-            public static void main(String[] args) {
-                // Deposit dept = new Deposit();
-                // dept.depositAmt();
-                // AddAccount addAccount= new AddAccount();
-                // addAccount.add(1, "johnny", 0);
-                Withdraw with = new Withdraw();
-                with.WithdrawAmt();
-
-            }
-            
 }
-
