@@ -7,15 +7,22 @@ import java.sql.SQLException;
 import com.cecil.connection.Connections;
 
 public class AddAccount {
-        public static void add(int aid, String aname, int balance) {
-                try {
-                        String sql = "insert into account( aid, aname, balance) values(?,?,?)";
+        public static void add(int aid, String aname, double balance) {
+                try {   
+                        String sql = "select max(?) from account";
                         PreparedStatement pstmt = Connections.openConn().prepareStatement(sql);
-
                         pstmt.setInt(1, aid);
-                        pstmt.setString(2, aname);
-                        pstmt.setInt(3, balance);
-                        Boolean r = pstmt.execute();
+                        ResultSet s = pstmt.executeQuery();
+                        s.next();
+                        aid = s.getInt(1) + 1;
+
+                        String sql1 = "insert into account( aid, aname, balance) values(?,?,?)";
+                        PreparedStatement pstmt1 = Connections.openConn().prepareStatement(sql1);
+                        pstmt1.setInt(1, aid);
+                        pstmt1.setString(2, aname);
+                        pstmt1.setDouble(3, balance);
+                        pstmt1.execute();
+
                         System.out.println("=========================ACCOUNT CREATED Successfully!===============================");
                         System.out.println("Name: " + aname);
                         System.out.println("Account No: " + aid);
