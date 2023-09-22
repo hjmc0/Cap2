@@ -42,7 +42,7 @@ public class Withdraw {
                     while (sure != 1) {
                         System.out.println("-------------------- CURRENT BALANCE: $" + curBal + " --------------------");
                         System.out.print("Enter Withdrawal Amount: $"); // Entry of deposit amount and calculation
-                        tempBal = Application.scan.nextDouble();
+                        tempBal = Math.abs(Application.scan.nextDouble());
                         Application.scan.nextLine();
                         sure = 0;
 
