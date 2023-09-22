@@ -107,7 +107,8 @@ public class Application {
                 break;
             }
 
-            System.out.print("Do you want to perform other transactions? (y/n): ");
+            scan.nextLine();
+            System.out.print("Do you want to perform another transaction? (y/n): ");
             String answer2 = scan.nextLine();
             if (answer2.equalsIgnoreCase("y")) {
                 toContinue = true;
