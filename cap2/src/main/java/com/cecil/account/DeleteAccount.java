@@ -1,62 +1,50 @@
 package com.cecil.account;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Savepoint;
 import java.sql.Statement;
-import java.util.Scanner;
 
-import connection.Connections;
+import com.cecil.Application;
+
+import com.cecil.connection.Connections;
 
 public class DeleteAccount {
-    private int aid;
 
-    public int getAid() {
-        return aid;
-    }
-    
-    static Scanner scan = new Scanner(System.in);
-    
-    static public void deleteAccount() {
-        String choice;
+    static public void deleteAccount(int aid) {
 
         try {
-            //Connections.openConn().setAutoCommit(false);
-            System.out.println(Connections.openConn().getAutoCommit());
-            Savepoint beforeDelete = Connections.openConn().setSavepoint("BeforeDelete");
-            
             Statement stmt = Connections.openConn().createStatement();
-            //String deleteSql =  "delete from account where aid = " + getAid();
-            String deleteSql =  "delete from account where aid = 1";
-            System.out.println(deleteSql);
-            stmt.execute(deleteSql);
-            Connections.openConn().commit();
-            
-            try {
-                //System.out.println("Accounts and Transaction Histories related to Account ID" + getAid() + " will be deleted. Are you sure (y/n) ?");
-                System.out.print("Accounts and Transaction Histories related to Account ID 1 will be deleted. Are you sure (y/n) ?");
-                choice = scan.nextLine();
-                if (choice.equalsIgnoreCase("y") ) {
-                    //System.out.println("Account ID " + getAid() + " and all transaction histories deleted !!");
-                    System.out.println("Account ID 1 and all transaction histories deleted !!");
-                } else {
-                Connections.openConn().rollback(beforeDelete);
-                }
-            } catch (NullPointerException ne) {
-                System.out.println("NullPointerException Caught");
+            Boolean exist = true;
+            ResultSet r_aname = stmt.executeQuery("select * from account where aid = " + aid);
+            String aname = "";
+            System.out.println("===================================================");
+            if (r_aname.next()) {
+                aname = r_aname.getString("aname");
+                System.out.println("Account ID      : " + r_aname.getInt("aid"));
+                System.out.println("Account Name    : " + aname);
+                System.out.println("Account Balance : " + r_aname.getInt("balance"));
+                System.out.println("===================================================");
+            } else {
+                System.out.println("Account ID " + aid + " does not exist!!!");
+                exist = false;
             }
-            
+
+            if (exist) {
+                System.out.print("Above account will be deleted. Are you sure (y/n) ?????");
+                String choice = Application.scan.nextLine();
+                if (choice.equalsIgnoreCase("y")) {
+                    String deleteTrans = "delete from transaction where aid = "+aid;
+                    stmt.execute(deleteTrans);
+                    String deleteAcc = "delete from account where aid = " + aid;
+                    stmt.execute(deleteAcc);
+                    
+                    System.out.println(aname + " (Account ID " + aid + ") and all transaction histories deleted !!");
+                }
+            }
         } catch (SQLException se) {
             se.printStackTrace();
         } finally {
-            try {
-                Connections.openConn().close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            Connections.closeConn();
         }
-    }
-
-    public static void main(String[] args) {
-        deleteAccount();
     }
 }

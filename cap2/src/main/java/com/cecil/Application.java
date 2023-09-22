@@ -70,11 +70,10 @@ public class Application {
             }
 
             if (!toContinue) {
-                System.out.println("hh");
                 break;
             }
 
-            System.out.print("Do you want to continue (y/n): ");
+            System.out.print("Do you want to perform other transactions? (y/n): ");
             String answer = scan.nextLine();
             if (answer.equalsIgnoreCase("y")) {
                 toContinue = true;

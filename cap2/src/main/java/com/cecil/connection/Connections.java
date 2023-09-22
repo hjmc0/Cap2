@@ -1,4 +1,4 @@
-package connection;
+package com.cecil.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,6 +17,7 @@ public class Connections {
                     // "shurui99", "pass");
             // conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl",
             //         "shurui99", "pass");
+            // conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","shurui99", "pass");
             assert conn != null : "Connection not successful";
         } catch (SQLException se) {
             se.printStackTrace();
