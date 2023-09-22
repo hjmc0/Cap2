@@ -1,14 +1,10 @@
 package com.cecil.account;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Scanner;
 
 import com.cecil.Application;
 import com.cecil.connection.Connections;
@@ -17,7 +13,6 @@ public class Withdraw {
     public static void WithdrawAmt(int acctID) {
         try {
 
-            Statement stmt1 = Connections.openConn().createStatement();
             LocalDateTime dateTime = LocalDateTime.now();
             Timestamp ts = Timestamp.valueOf(dateTime);
 
@@ -45,8 +40,7 @@ public class Withdraw {
                     aidMatcher = true;
 
                     while (sure != 1) {
-                        System.out
-                                .println("-------------------- CURRENT BALANCE: $" + curBal + " --------------------");
+                        System.out.println("-------------------- CURRENT BALANCE: $" + curBal + " --------------------");
                         System.out.print("Enter Withdrawal Amount: $"); // Entry of deposit amount and calculation
                         tempBal = Application.scan.nextDouble();
                         Application.scan.nextLine();

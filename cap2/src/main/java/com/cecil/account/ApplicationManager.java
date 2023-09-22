@@ -8,21 +8,16 @@ public class ApplicationManager {
         String input1, input2, input3;
         switch (operation) {
             case "add":
-                System.out.print("Enter New Account Number: ");
-                input1 = Application.scan.nextLine();
-                if (!input1.equals("q")) {
-                    System.out.print("Enter Account Holder's Name: ");
-                    input2 = Application.scan.nextLine();
-                    int bal = 0; // set default as $0
-                    if (!input2.equals("q")) {
-                        try {
-                            int add_aid = Integer.valueOf(input1);
-                            AddAccount.add(add_aid, input2, bal);
-                        } catch (NumberFormatException ne) {
-                            System.out.println("Invalid Account Number!");
-                        }
-
+                System.out.print("Enter Account Holder's Name: ");
+                input2 = Application.scan.nextLine();
+                int bal = 0; // set default as $0
+                if (!input2.equals("q")) {
+                    try {
+                        AddAccount.add(input2, bal);
+                    } catch (NumberFormatException ne) {
+                        System.out.println("Invalid Account Number!");
                     }
+
                 }
 
                 break;
@@ -71,20 +66,31 @@ public class ApplicationManager {
                 System.out.println("=========================== DEPOSIT ===========================");
                 System.out.println("---------------------------------------------------------------");
                 System.out.print("Enter the Account ID: ");
-                int deposit_aid = Application.scan.nextInt();
-                Application.scan.nextLine();
-
-                Deposit.depositAmt(deposit_aid);
+                input1 = Application.scan.nextLine();
+                if (!input1.equals("q")) {
+                    try {
+                        int deposit_aid = Integer.valueOf(input1);
+                        Deposit.depositAmt(deposit_aid);
+                    }catch (NumberFormatException ne) {
+                        System.out.println("Invalid Account Number!");
+                    }
+                }
+                
                 break;
             case "withdraw":
                 System.out.println("---------------------------------------------------------------");
                 System.out.println("=========================== WITHDRAW ===========================");
                 System.out.println("---------------------------------------------------------------");
                 System.out.print("Enter the Account ID: ");
-                int withdraw_aid = Application.scan.nextInt();
-                Application.scan.nextLine();
-
-                Withdraw.WithdrawAmt(withdraw_aid);
+                input1 = Application.scan.nextLine();
+                if (!input1.equals("q")) {
+                    try {
+                        int withdraw_aid = Integer.valueOf(input1);
+                        Withdraw.WithdrawAmt(withdraw_aid);
+                    }catch (NumberFormatException ne) {
+                        System.out.println("Invalid Account Number!");
+                    }
+                }
                 ;
                 break;
 

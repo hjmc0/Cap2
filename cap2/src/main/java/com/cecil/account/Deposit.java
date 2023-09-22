@@ -3,7 +3,6 @@ package com.cecil.account;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
@@ -42,7 +41,7 @@ public class Deposit {
                     aidMatcher = true;
 
                     while (sure != 1) {
-                        System.out.println("-----------------------------------------------------------");
+                        System.out.println("-------------------- CURRENT BALANCE: $" + curBal + " --------------------");
                         System.out.print("Enter Deposit Amount: $"); // Entry of deposit amount and calculation
                         tempBal = Application.scan.nextDouble();
                         Application.scan.nextLine();
@@ -57,7 +56,7 @@ public class Deposit {
                             System.out.print("Select : ");
                             sure = Application.scan.nextInt();
                             Application.scan.nextLine();
-                            if ((sure != 2) && (sure !=1)) {
+                            if ((sure != 2) && (sure != 1)) {
                                 System.out.println("Invalid option");
 
                             }

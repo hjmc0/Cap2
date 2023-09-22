@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import com.cecil.connection.Connections;
 
 public class AddAccount {
-        public static void add(int aid, String aname, double balance) {
+        public static void add(String aname, double balance) {
                 try {   
-                        String sql = "select max(?) from account";
+                        String sql = "select max(aid) from account";
                         PreparedStatement pstmt = Connections.openConn().prepareStatement(sql);
-                        pstmt.setInt(1, aid);
+                
                         ResultSet s = pstmt.executeQuery();
                         s.next();
-                        aid = s.getInt(1) + 1;
+                        int aid = s.getInt(1) + 1;
 
                         String sql1 = "insert into account( aid, aname, balance) values(?,?,?)";
                         PreparedStatement pstmt1 = Connections.openConn().prepareStatement(sql1);

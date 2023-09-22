@@ -3,10 +3,7 @@ package com.cecil.account;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-
 import com.cecil.Application;
-
 import com.cecil.connection.Connections;
 
 public class DeleteAccount {
