@@ -1,11 +1,5 @@
 package com.cecil.account;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Scanner;
-
 import com.cecil.Application;
 
 public class ApplicationManager {
@@ -33,9 +27,11 @@ public class ApplicationManager {
                 System.out.println("Enter Account ID: ");
                 int mod_aid = Application.scan.nextInt();
                 System.out.println("Enter Field to edit: ");
+                Application.scan.nextLine();
                 String field = Application.scan.nextLine();
                 System.out.println("Enter new value for " + field + ": ");
                 String new_val = Application.scan.nextLine();
+                ModifyAccount.modifyDetails(mod_aid, field, new_val);
 
                 break;
 
