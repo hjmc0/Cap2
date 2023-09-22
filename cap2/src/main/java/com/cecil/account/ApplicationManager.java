@@ -1,27 +1,29 @@
 package com.cecil.account;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Scanner;
-
 import com.cecil.Application;
 
 public class ApplicationManager {
     public void execute(String operation) {
         operation = operation.toLowerCase();
-
+        String input1, input2, input3;
         switch (operation) {
             case "add":
                 System.out.print("Enter New Account Number: ");
-                int aid = Application.scan.nextInt();
-                Application.scan.nextLine();
-                System.out.print("Enter Account Holder's Name: ");
-                String aname = Application.scan.nextLine();
-                int bal = 0; // set default as $0
+                input1 = Application.scan.nextLine();
+                if (!input1.equals("q")) {
+                    System.out.print("Enter Account Holder's Name: ");
+                    input2 = Application.scan.nextLine();
+                    int bal = 0; // set default as $0
+                    if (!input2.equals("q")) {
+                        try {
+                            int add_aid = Integer.valueOf(input1);
+                            AddAccount.add(add_aid, input2, bal);
+                        } catch (NumberFormatException ne) {
+                            System.out.println("Invalid Account Number!");
+                        }
 
-                AddAccount.add(aid, aname, bal);
+                    }
+                }
 
                 break;
 
@@ -31,16 +33,37 @@ public class ApplicationManager {
 
             case "modify":
                 System.out.println("Enter Account ID: ");
-                int mod_aid = Application.scan.nextInt();
-                System.out.println("Enter Field to edit: ");
-                String field = Application.scan.nextLine();
-                System.out.println("Enter new value for " + field + ": ");
-                String new_val = Application.scan.nextLine();
+                input1 = Application.scan.nextLine();
+                if (!input1.equals("q")) {
+                    System.out.println("Enter Field to edit: ");
+                    input2 = Application.scan.nextLine();
+                    if (!input2.equals("q")) {
+                        System.out.println("Enter new value for " + input2 + ": ");
+                        input3 = Application.scan.nextLine();
+                        if (!input3.equals("q")) {
+                            try {
+                                int mod_aid = Integer.valueOf(input1);
+                                ModifyAccount.modifyDetails(mod_aid, input2, input3);
+                            } catch (Exception e) {
+                                System.out.println("Invalid Account Number!");
+                            }
 
+                        }
+                    }
+                }
                 break;
 
             case "close":
-
+                System.out.print("Enter Account ID to close: ");
+                input1 = Application.scan.nextLine();
+                if (!input1.equals("q")) {
+                        try {
+                            int del_aid = Integer.valueOf(input1);
+                            DeleteAccount.deleteAccount(del_aid);
+                        } catch (NumberFormatException ne) {
+                            System.out.println("Invalid Account Number!");
+                        }
+                    }
                 break;
 
             case "deposit":
@@ -52,9 +75,16 @@ public class ApplicationManager {
 
             case "viewbal":
                 System.out.print("Enter Account ID: ");
-                int bal_aid = Application.scan.nextInt();
-                Application.scan.nextLine();
-                ViewBalance.view(bal_aid);
+                input1 = Application.scan.nextLine();
+                if (!input1.equals("q")) {
+                        try {
+                            int view_aid = Integer.valueOf(input1);
+                            ViewBalance.view(view_aid);
+                        } catch (NumberFormatException ne) {
+                            System.out.println("Invalid Account Number!");
+                        }
+                    }
+                
                 break;
 
             default:

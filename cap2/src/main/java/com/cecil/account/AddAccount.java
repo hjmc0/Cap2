@@ -4,7 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import connection.Connections;
+import com.cecil.connection.Connections;
 
 public class AddAccount {
         public static void add(int aid, String aname, int balance) {
@@ -15,7 +15,7 @@ public class AddAccount {
                         pstmt.setInt(1, aid);
                         pstmt.setString(2, aname);
                         pstmt.setInt(3, balance);
-                        ResultSet r = pstmt.executeQuery();
+                        Boolean r = pstmt.execute();
                         System.out.println("=========================ACCOUNT CREATED Successfully!===============================");
                         System.out.println("Name: " + aname);
                         System.out.println("Account No: " + aid);

@@ -3,12 +3,36 @@ package com.cecil;
 import java.util.Scanner;
 
 import com.cecil.account.ApplicationManager;
+import com.cecil.teller.LoginTeller;
+import com.cecil.teller.TellerManager;
 
 public class Application {
     static boolean toContinue = true;
     public static Scanner scan;
 
     public static void main(String[] args) {
+        while (!LoginTeller.auth) {
+            System.out.println("Dear Teller, please select from the following options");
+            System.out.println("1. Login");
+            System.out.println("2. Exit");
+            scan = new Scanner(System.in);
+            int option = scan.nextInt();
+            scan.nextLine();
+            TellerManager tellmgr = new TellerManager();
+            switch (option) {
+                case 1:
+                    tellmgr.execute("login");
+                    break;
+                case 2:
+                    System.exit(-1);
+                    break;
+
+                default:
+                    System.out.println("Invalid Choice.");
+                    break;
+            }
+        }
+
         while (toContinue) {
             System.out.println("Please select from the following options");
             System.out.println("------------------------------------------");
@@ -20,13 +44,16 @@ public class Application {
             System.out.println("6. Withdraw Money");
             System.out.println("7. View Balance");
             System.out.println("8. View Transaction History");
-            System.out.println("9. Exit");
+            System.out.println("9. Create Teller");
+            System.out.println("10. Delete Teller");
+            System.out.println("11. Exit");
 
-            scan = new Scanner(System.in);
+            // scan = new Scanner(System.in);
             int choice = scan.nextInt();
-            scan.nextLine();
-            //scan.close();
+            // scan.nextLine();
+            // scan.close();
             ApplicationManager appmgr = new ApplicationManager();
+            TellerManager tellmgr = new TellerManager();
 
             switch (choice) {
                 case 1:
@@ -60,8 +87,13 @@ public class Application {
                 case 8:
                     appmgr.execute("viewtranshist");
                     break;
-
                 case 9:
+                    tellmgr.execute("create");
+                    break;
+                case 10:
+                    tellmgr.execute("delete");
+                    break;
+                case 11:
                     toContinue = false;
                     break;
                 default:
@@ -70,19 +102,19 @@ public class Application {
             }
 
             if (!toContinue) {
-                System.out.println("hh");
                 break;
             }
 
-            System.out.print("Do you want to continue (y/n): ");
-            String answer = scan.nextLine();
-            if (answer.equalsIgnoreCase("y")) {
+            scan.nextLine();
+            System.out.print("Do you want to perform another transaction? (y/n): ");
+            String answer2 = scan.nextLine();
+            if (answer2.equalsIgnoreCase("y")) {
                 toContinue = true;
             } else {
                 toContinue = false;
             }
         }
         scan.close();
-        
+
     }
 }
