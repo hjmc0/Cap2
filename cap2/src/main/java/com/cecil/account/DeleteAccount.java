@@ -57,8 +57,6 @@ public class DeleteAccount {
     }
 
     public static void main(String[] args) {
-        
         deleteAccount();
-
     }
 }
