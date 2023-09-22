@@ -62,6 +62,12 @@ public class InitialiseDB {
     public static void createDummy() {
 
         try {
+            String insertTeller = "insert into teller(tname , tpass) values (? , ?)";
+            pstmt = Connections.openConn().prepareStatement(insertTeller);
+            pstmt.setString(1, "admin");
+            pstmt.setString(2, "admin");
+            pstmt.execute();
+
 
             String insertAcc1 = "insert into account(aid , aname , balance) values (? , ?, ?)";
             pstmt = Connections.openConn().prepareStatement(insertAcc1);
