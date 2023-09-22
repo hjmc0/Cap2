@@ -50,7 +50,7 @@ public class Application {
 
             // scan = new Scanner(System.in);
             int choice = scan.nextInt();
-            // scan.nextLine();
+            scan.nextLine();
             // scan.close();
             ApplicationManager appmgr = new ApplicationManager();
             TellerManager tellmgr = new TellerManager();
@@ -105,7 +105,6 @@ public class Application {
                 break;
             }
 
-            scan.nextLine();
             System.out.print("Do you want to perform another transaction? (y/n): ");
             String answer2 = scan.nextLine();
             if (answer2.equalsIgnoreCase("y")) {

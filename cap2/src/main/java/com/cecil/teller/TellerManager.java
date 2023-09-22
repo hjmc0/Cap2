@@ -22,14 +22,13 @@ public class TellerManager {
                 LoginTeller.login(login_tname, login_tpass);
                 break;
 
-            // case "delete":
-            //     System.out.print("Enter Teller Name to close: ");
-            //     String delete_tname = Application.scan.nextLine();
-            //     System.out.print("Enter Teller Name to close: ");
-            //     String delete_tpass = Application.scan.nextLine();
-            //     Application.scan.nextLine();
-
-            //     break;
+            case "delete":
+                System.out.print("Enter Teller Name to close: ");
+                String delete_tname = Application.scan.nextLine();
+                System.out.print("Enter Teller Password to close: ");
+                String delete_tpass = Application.scan.nextLine();
+                DeleteTeller.delete(delete_tname, delete_tpass);
+                break;
 
             default:
                 // code block
