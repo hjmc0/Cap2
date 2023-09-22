@@ -50,11 +50,6 @@ public class Application {
 
             int choice = scan.nextInt();
             scan.nextLine();
-<<<<<<< Updated upstream
-            // scan.close();
-=======
-
->>>>>>> Stashed changes
             ApplicationManager appmgr = new ApplicationManager();
             TellerManager tellmgr = new TellerManager();
 
