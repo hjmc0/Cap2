@@ -6,7 +6,8 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-import connection.Connections;
+import com.cecil.connection.Connections;
+
 
 public class InsertTimeStamp {
  
@@ -18,6 +19,7 @@ public class InsertTimeStamp {
             PreparedStatement stmt = conn.prepareStatement("insert into testdate values(?)");
             LocalDateTime ld = LocalDateTime.now();
             Timestamp ts = Timestamp.valueOf(ld);
+            System.out.println(ts);
             stmt.setTimestamp(1, ts);
             stmt.executeUpdate();
             System.out.println("Rec inserted");
