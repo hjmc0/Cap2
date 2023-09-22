@@ -14,9 +14,7 @@ public class Application {
         while (!LoginTeller.auth) {
             System.out.println("Dear Teller, please select from the following options");
             System.out.println("1. Login");
-            System.out.println("2. Create");
-            System.out.println("3. Delete");
-            System.out.println("4. Exit");
+            System.out.println("2. Exit");
             scan = new Scanner(System.in);
             int option = scan.nextInt();
             scan.nextLine();
@@ -25,15 +23,7 @@ public class Application {
                 case 1:
                     tellmgr.execute("login");
                     break;
-
                 case 2:
-                    tellmgr.execute("create");
-                    break;
-
-                case 3:
-                    tellmgr.execute("delete");
-                    break;
-                case 4:
                     System.exit(-1);
                     break;
 
@@ -54,13 +44,16 @@ public class Application {
             System.out.println("6. Withdraw Money");
             System.out.println("7. View Balance");
             System.out.println("8. View Transaction History");
-            System.out.println("9. Exit");
+            System.out.println("9. Create Teller");
+            System.out.println("10. Delete Teller");
+            System.out.println("11. Exit");
 
             // scan = new Scanner(System.in);
             int choice = scan.nextInt();
             // scan.nextLine();
             // scan.close();
             ApplicationManager appmgr = new ApplicationManager();
+            TellerManager tellmgr = new TellerManager();
 
             switch (choice) {
                 case 1:
@@ -94,8 +87,13 @@ public class Application {
                 case 8:
                     appmgr.execute("viewtranshist");
                     break;
-
                 case 9:
+                    tellmgr.execute("create");
+                    break;
+                case 10:
+                    tellmgr.execute("delete");
+                    break;
+                case 11:
                     toContinue = false;
                     break;
                 default:
