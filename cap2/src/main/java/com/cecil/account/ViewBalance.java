@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import connection.Connections;
+import com.cecil.connection.Connections;
 
 public class ViewBalance {
     

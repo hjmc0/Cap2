@@ -5,7 +5,7 @@ import java.sql.Savepoint;
 import java.sql.Statement;
 import java.util.Scanner;
 
-import connection.Connections;
+import com.cecil.connection.Connections;
 
 public class DeleteAccount {
     private int aid;

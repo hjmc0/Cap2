@@ -3,7 +3,7 @@ package com.cecil.account;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import connection.Connections;
+import com.cecil.connection.Connections;
 
 public class ModifyAccount {
     static public void modifyDetails(int aid, String field, String new_val) {
