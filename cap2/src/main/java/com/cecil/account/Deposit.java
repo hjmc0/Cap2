@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.InputMismatchException;
 
 import com.cecil.Application;
 import com.cecil.connection.Connections;
@@ -42,9 +43,19 @@ public class Deposit {
 
                     while (sure != 1) {
                         System.out.println("-------------------- CURRENT BALANCE: $" + curBal + " --------------------");
-                        System.out.print("Enter Deposit Amount: $"); // Entry of deposit amount and calculation
-                        tempBal = Math.abs(Application.scan.nextDouble());
-                        Application.scan.nextLine();
+                        Boolean valid = false;
+                        while (!valid){
+                            System.out.print("Enter Deposit Amount: $"); // Entry of deposit amount and calculation
+                            try {
+                                tempBal = Math.abs(Application.scan.nextDouble());
+                                Application.scan.nextLine();
+                                valid = true;
+                            } catch (InputMismatchException e) {
+                                Application.scan.nextLine();
+                                System.out.println("Invalid Deposit Amount. Please try again."); 
+                            }
+                            
+                        }
                         sure = 0;
 
                         while (sure != 1 && sure != 2) {

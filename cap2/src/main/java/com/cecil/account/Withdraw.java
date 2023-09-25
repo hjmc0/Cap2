@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.InputMismatchException;
 
 import com.cecil.Application;
 import com.cecil.connection.Connections;
@@ -41,9 +42,22 @@ public class Withdraw {
 
                     while (sure != 1) {
                         System.out.println("-------------------- CURRENT BALANCE: $" + curBal + " --------------------");
-                        System.out.print("Enter Withdrawal Amount: $"); // Entry of deposit amount and calculation
-                        tempBal = Math.abs(Application.scan.nextDouble());
-                        Application.scan.nextLine();
+
+                        Boolean valid = false;
+                        while (!valid) {
+                            System.out.print("Enter Withdrawal Amount: $"); 
+
+                            try {
+                                tempBal = Math.abs(Application.scan.nextDouble());
+                                Application.scan.nextLine();
+                                valid = true;
+                            } catch (InputMismatchException e) {
+                                Application.scan.nextLine();
+                                System.out.println("Invalid Withdrawal Amount. Please try again.");
+                            }
+
+                        }
+
                         sure = 0;
 
                         while (sure != 1 && sure != 2) {
@@ -55,14 +69,13 @@ public class Withdraw {
                             System.out.print("Select : ");
                             sure = Application.scan.nextInt();
                             Application.scan.nextLine();
-                            if ((sure != 1)&&(sure != 2)) {
+                            if ((sure != 1) && (sure != 2)) {
                                 System.out.println("Invalid option");
 
                             }
                         }
                     }
                     newBal = curBal - tempBal;
-
 
                     String sql2 = "select max(trans_id) from transaction";
                     PreparedStatement pstmt1 = Connections.openConn().prepareStatement(sql2);
@@ -86,7 +99,6 @@ public class Withdraw {
                     pstmt3.setDouble(5, tempBal);
                     pstmt3.execute();
 
-
                     System.out.println("===============================================================");
                     System.out.println("====================== WITHDRAW COMPLETED =====================");
                     System.out.println("ACCOUNT NUMBER            :   " + acctID);
@@ -105,6 +117,6 @@ public class Withdraw {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
     }
 }

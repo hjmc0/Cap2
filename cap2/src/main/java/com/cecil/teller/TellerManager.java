@@ -24,7 +24,13 @@ public class TellerManager {
                     Console console = System.console();
                     char[] login_tpass = console.readPassword("Enter Teller Password: ");
                     LoginTeller.login(login_tname, new String(login_tpass));
-                    tCount +=1;
+                    if(LoginTeller.auth){
+                        break;
+                    }
+                    else{
+                        tCount +=1;
+                        System.out.println("You have "+(3-tCount)+" attempts left.");
+                    }
                 }
                 if (LoginTeller.auth == false) {
                     System.out.println("3 failed login attempts. Exiting now!");
