@@ -5,21 +5,44 @@ import com.cecil.Application;
 public class ApplicationManager {
     public void execute(String operation) {
         operation = operation.toLowerCase();
-        String input1, input2, input3;
+        String input1, input2, input3, input4;
+        Integer input3_int = null;
         switch (operation) {
             case "add":
                 System.out.print("Enter Account Holder's Name: ");
+                input1 = Application.scan.nextLine();
+                if (input1.equals("q")) {
+                    break;
+                }
+                System.out.print("Enter Account Holder's Email: ");
                 input2 = Application.scan.nextLine();
-                int bal = 0; // set default as $0
-                if (!input2.equals("q")) {
-                    try {
-                        AddAccount.add(input2, bal);
-                    } catch (NumberFormatException ne) {
-                        System.out.println("Invalid Account Number!");
-                    }
-
+                if (input2.equals("q")) {
+                    break;
                 }
 
+                while (true) {
+                    System.out.print("Enter Account Holder's Phone Number: ");
+                    input3 = Application.scan.nextLine();
+                    if (input3.equals("q")) {
+                        break;
+                    }
+                    try {
+                        input3_int = input3.equals("") ? null : Integer.valueOf(input3);
+                        break;
+                    } catch (NumberFormatException ne) {
+                        System.out.println("Invalid Phone Number! Please try again");
+                    }
+                    
+                }
+
+                System.out.print("Enter Account Holder's Address: ");
+                input4 = Application.scan.nextLine();
+                if (input4.equals("q")) {
+                    break;
+                }
+
+                int bal = 0; // set default as $0
+                AddAccount.add(input1, input2, input3_int, input4, bal);
                 break;
 
             case "view":
@@ -71,11 +94,11 @@ public class ApplicationManager {
                     try {
                         int deposit_aid = Integer.valueOf(input1);
                         Deposit.depositAmt(deposit_aid);
-                    }catch (NumberFormatException ne) {
+                    } catch (NumberFormatException ne) {
                         System.out.println("Invalid Account Number!");
                     }
                 }
-                
+
                 break;
             case "withdraw":
                 System.out.println("---------------------------------------------------------------");
@@ -87,7 +110,7 @@ public class ApplicationManager {
                     try {
                         int withdraw_aid = Integer.valueOf(input1);
                         Withdraw.WithdrawAmt(withdraw_aid);
-                    }catch (NumberFormatException ne) {
+                    } catch (NumberFormatException ne) {
                         System.out.println("Invalid Account Number!");
                     }
                 }
