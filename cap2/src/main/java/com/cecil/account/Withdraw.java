@@ -33,7 +33,6 @@ public class Withdraw {
                 String reset = "\u001B[0m"; // Reset color
                 String cyan = "\u001B[36m";   // Cyan
                 String red = "\u001B[31m";   // Red
-                String green = "\u001B[32m"; // Green
                 String bold = "\033[0;1m"; // Bold
                 String yellow = "\u001B[33m"; // Yellow
 
