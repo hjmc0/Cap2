@@ -32,7 +32,7 @@ public class ApplicationManager {
                     } catch (NumberFormatException ne) {
                         System.out.println("Invalid Phone Number! Please try again");
                     }
-                    
+
                 }
 
                 System.out.print("Enter Account Holder's Address: ");
@@ -50,23 +50,54 @@ public class ApplicationManager {
                 break;
 
             case "modify":
-                System.out.println("Enter Account ID: ");
+                int mod_aid;
+                System.out.print("Enter Account ID: ");
                 input1 = Application.scan.nextLine();
-                if (!input1.equals("q")) {
-                    System.out.println("Enter Field to edit: ");
-                    input2 = Application.scan.nextLine();
-                    if (!input2.equals("q")) {
-                        System.out.println("Enter new value for " + input2 + ": ");
-                        input3 = Application.scan.nextLine();
-                        if (!input3.equals("q")) {
-                            try {
-                                int mod_aid = Integer.valueOf(input1);
-                                ModifyAccount.modifyDetails(mod_aid, input2, input3);
-                            } catch (Exception e) {
-                                System.out.println("Invalid Account Number!");
-                            }
 
+                try {
+                    mod_aid = Integer.valueOf(input1);
+                } catch (Exception e) {
+                    System.out.println("Invalid Account Number!");
+                    break;
+                }
+
+                boolean to_continue = true;
+
+                while (to_continue) {
+                    if (!input1.equals("q")) {
+                        System.out.println("Enter Field to edit: ");
+                        System.out.println("1. Account Name");
+                        System.out.println("2. Email");
+                        System.out.println("3. Phone Number");
+                        System.out.println("4. Address");
+
+                        input2 = Application.scan.nextLine();
+                        String input2_label = input2.equals("1") ? "Account Name"
+                                : input2.equals("2") ? "Email" : input2.equals("3") ? "Phone Number" : "Address";
+
+                        if (!input2.equals("q")) {
+                            System.out.print("Enter new value for " + input2_label + ": ");
+                            input3 = Application.scan.nextLine();
+                            if (!input3.equals("q")) {
+                                input2 = input2.equals("1") ? "aname"
+                                        : input2.equals("2") ? "email" : input2.equals("3") ? "phone" : "address";
+
+                                if (input2.equalsIgnoreCase("phone")) {
+                                    try {
+                                        Integer.valueOf(input3);
+                                    } catch (Exception e) {
+                                        System.out.println("Invalid Phone Number!");
+                                        break;
+                                    }
+                                }
+                                ModifyAccount.modifyDetails(mod_aid, input2, input3);
+                            }
                         }
+                    }
+                    System.out.print("Do you want to edit another field? (Y/N)");
+                    String response = Application.scan.nextLine();
+                    if (response.equalsIgnoreCase("n")) {
+                        to_continue = false;
                     }
                 }
                 break;
