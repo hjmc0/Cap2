@@ -1,5 +1,7 @@
 package com.cecil.teller;
 
+import java.io.Console;
+
 import com.cecil.Application;
 
 public class TellerManager {
@@ -17,9 +19,9 @@ public class TellerManager {
             case "login":
                 System.out.print("Enter Teller Name: ");
                 String login_tname = Application.scan.nextLine();
-                System.out.print("Enter Teller Password: ");
-                String login_tpass = Application.scan.nextLine();
-                LoginTeller.login(login_tname, login_tpass);
+                Console console = System.console();
+                char[] login_tpass = console.readPassword("Enter Teller Password: ");
+                LoginTeller.login(login_tname, new String(login_tpass));
                 break;
 
             case "delete":
