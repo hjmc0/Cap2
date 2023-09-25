@@ -20,10 +20,12 @@ public class DeleteAccount {
             String aname = "";
             System.out.println("===================================================");
             if (r_aname.next()) {
-                aname = r_aname.getString("aname");
                 System.out.println("Account ID      : " + r_aname.getInt("aid"));
-                System.out.println("Account Name    : " + aname);
-                System.out.println("Account Balance : " + r_aname.getInt("balance"));
+                System.out.println("Account Name    : " + r_aname.getString("aname"));
+                System.out.println("Account Email   : " + r_aname.getString("email"));
+                System.out.println("Account Phone No: " + r_aname.getInt("phone"));
+                System.out.println("Account Address : " + r_aname.getString("address"));
+                System.out.println("Account Balance : " + r_aname.getDouble("balance"));
                 System.out.println("===================================================");
             } else {
                 System.out.println("Account ID " + aid + " does not exist!!!");
@@ -40,7 +42,7 @@ public class DeleteAccount {
                     PreparedStatement pstmt1 = Connections.openConn().prepareStatement(deleteAcc);
                     pstmt1.setInt(1, aid);
                     pstmt1.execute();
-                    
+
                     System.out.println(aname + " (Account ID " + aid + ") and all transaction histories deleted !!");
                 }
             }
