@@ -19,9 +19,9 @@ public class ViewAllAccounts {
             // String white = "\u001B[37m";  // White
             System.out.printf("%s%-6s | %-15s | %-15s | %-10s %s%n", red, "Index.", "Account ID", "Holder Name", "Account Balance", reset);
             while (r.next()) {
-                System.out.printf("%s%-6s | %-15s | %-15s | $%10.2f  %s%n", green, cnt + ".", r.getInt("aid"), r.getString("aname"), r.getDouble("balance"), reset);
+                System.out.printf("%s%-6s | %-15s | %-15s | $%10.2f  %s%n",
+                         green, cnt + ".", r.getInt("aid"), r.getString("aname"), r.getDouble("balance"), reset);
                 cnt += 1;
-               
             }
             
         } catch (SQLException se) {

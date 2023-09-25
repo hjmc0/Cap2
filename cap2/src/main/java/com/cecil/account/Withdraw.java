@@ -30,6 +30,12 @@ public class Withdraw {
                 double tempBal = 0;
                 double newBal = 0;
                 int sure = 0;
+                String reset = "\u001B[0m"; // Reset color
+                String cyan = "\u001B[36m";   // Cyan
+                String red = "\u001B[31m";   // Red
+                String green = "\u001B[32m"; // Green
+                String bold = "\033[0;1m"; // Bold
+                String yellow = "\u001B[33m"; // Yellow
 
                 // retrieving
                 while (r.next()) {
@@ -41,7 +47,7 @@ public class Withdraw {
                     aidMatcher = true;
 
                     while (sure != 1) {
-                        System.out.println("-------------------- CURRENT BALANCE: $" + curBal + " --------------------");
+                        System.out.println("-------------------- "+ cyan +"CURRENT BALANCE: $" + String.format("%.2f", curBal) +reset +" --------------------");
 
                         Boolean valid = false;
                         while (!valid) {
@@ -53,7 +59,7 @@ public class Withdraw {
                                 valid = true;
                             } catch (InputMismatchException e) {
                                 Application.scan.nextLine();
-                                System.out.println("Invalid Withdrawal Amount. Please try again.");
+                                System.out.println(red+ "Invalid Withdrawal Amount. Please try again."+ reset);
                             }
 
                         }
@@ -63,14 +69,14 @@ public class Withdraw {
                         while (sure != 1 && sure != 2) {
                             System.out.println("-----------------------------------------------------------");
                             System.out.println(
-                                    "Continue to WITHDRAW $" + tempBal + " from ACCOUNT No.: " + acctID + " ?");
+                                    "Continue to "+bold+ red +"WITHDRAW $" + String.format("%.2f", tempBal) +reset+ " from ACCOUNT No.: " + acctID + " ?");
                             System.out.println("1. To continue withdrawal");
                             System.out.println("2. To change amount");
                             System.out.print("Select : ");
                             sure = Application.scan.nextInt();
                             Application.scan.nextLine();
                             if ((sure != 1) && (sure != 2)) {
-                                System.out.println("Invalid option");
+                                System.out.println(red+"Invalid option"+reset);
 
                             }
                         }
@@ -100,16 +106,16 @@ public class Withdraw {
                     pstmt3.execute();
 
                     System.out.println("===============================================================");
-                    System.out.println("====================== WITHDRAW COMPLETED =====================");
-                    System.out.println("ACCOUNT NUMBER            :   " + acctID);
-                    System.out.println("ORIGINAL TOTAL BALANCE    : $ " + curBal);
-                    System.out.println("WITHDRAW AMOUNT          : $ " + tempBal);
-                    System.out.println("NEW TOTAL BALANCE         : $ " + newBal);
-                    System.out.println("============================END================================");
+                    System.out.println("====================== "+bold+cyan+"WITHDRAW COMPLETED"+reset+" =====================");
+                    System.out.println("ACCOUNT NUMBER            :     " + acctID);
+                    System.out.println("ORIGINAL TOTAL BALANCE    :   $ " + String.format("%.2f", curBal));
+                    System.out.println("WITHDRAW AMOUNT           :"+red+" - $ " + String.format("%.2f", tempBal) + reset);
+                    System.out.println("NEW TOTAL BALANCE         :   $ "+bold + String.format("%.2f", newBal)+reset);
+                    System.out.println("============================"+bold+yellow+"END"+reset+"================================");
 
                 } else {
                     aidMatcher = false;
-                    System.out.println("------------ Account ID does not exist, try again! ------------");
+                    System.out.println(red+"------------ Account ID does not exist, try again! ------------"+reset);
                     System.out.println("     ");
                 }
             }
