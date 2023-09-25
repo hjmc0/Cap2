@@ -48,21 +48,32 @@ public class Withdraw {
                     while (sure != 1) {
                         System.out.println("-------------------- "+ cyan +"CURRENT BALANCE: $" + String.format("%.2f", curBal) +reset +" --------------------");
 
+                        Boolean overBal = false;
                         Boolean valid = false;
-                        while (!valid) {
-                            System.out.print("Enter Withdrawal Amount: $"); 
 
-                            try {
-                                tempBal = Math.abs(Application.scan.nextDouble());
-                                Application.scan.nextLine();
-                                valid = true;
-                            } catch (InputMismatchException e) {
-                                Application.scan.nextLine();
-                                System.out.println(red+ "Invalid Withdrawal Amount. Please try again."+ reset);
+                        
+
+                            while (!valid && !overBal) {
+                                System.out.print("Enter Withdrawal Amount: $"); 
+                                try {
+                                    tempBal = Math.abs(Application.scan.nextDouble());
+                                    Application.scan.nextLine();
+
+                                    if (tempBal <= curBal) {
+                                    overBal = true;
+                                     valid = true;
+                                    } else {
+                                        System.out.println(red+"Withdrawal amount exceeds the Current Account Balance!");
+                                        System.out.println("Please try again."+ reset);
+                                    }
+                                   
+                                } catch (InputMismatchException e) {
+                                    Application.scan.nextLine();
+                                    System.out.println(red+ "Invalid Withdrawal Amount. Please try again."+ reset);
+                                }
+                            
                             }
-
-                        }
-
+                        
                         sure = 0;
 
                         while (sure != 1 && sure != 2) {
