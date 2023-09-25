@@ -33,7 +33,7 @@ public class InitialiseDB {
     }
 
     public static void createDB() {
-        String createAcc = "create table Account(aid number(3) primary key, aname varchar2(50) not null, balance number(38,2) not null)";
+        String createAcc = "create table Account(aid number(3) primary key, aname varchar2(50) not null, email varchar2(30), phone number(12), address varchar2(30), balance number(38,2) not null)";
         String createTrans = "create table Transaction(trans_id number(10) primary key, trans_date timestamp not null, trans_type varchar2(10) not null, aid number(3), CONSTRAINT fk_aid FOREIGN KEY (aid) REFERENCES Account(aid) on delete cascade, amount number(38,2) not null)";
         String createTeller = "create table teller(tname varchar2(6), tpass varchar2(6))";
         try {
@@ -69,27 +69,36 @@ public class InitialiseDB {
             pstmt.execute();
 
 
-            String insertAcc1 = "insert into account(aid , aname , balance) values (? , ?, ?)";
+            String insertAcc1 = "insert into account(aid , aname , email , phone, address , balance) values (? , ? , ? , ? , ?, ?)";
             pstmt = Connections.openConn().prepareStatement(insertAcc1);
             pstmt.setInt(1, 1);
             pstmt.setString(2, "hello1");
-            pstmt.setInt(3, 10000);
+            pstmt.setString(3, "hw@test.com");
+            pstmt.setInt(4, 12345678);
+            pstmt.setString(5, "ntuclhub");
+            pstmt.setDouble(6, 10000);
             pstmt.execute();
             System.out.println("HERE 1");
 
-            String insertAcc2 = "insert into account(aid , aname , balance) values (? , ?, ?)";
+            String insertAcc2 = "insert into account(aid , aname , email , phone, address , balance) values (? , ? , ? , ? , ?, ?)";
             pstmt = Connections.openConn().prepareStatement(insertAcc2);
             pstmt.setInt(1, 2);
             pstmt.setString(2, "hello2");
-            pstmt.setInt(3, 1003);
+            pstmt.setString(3, "ironman@test.com");
+            pstmt.setInt(4, 23546235);
+            pstmt.setString(5, "new york");
+            pstmt.setInt(6, 1003);
             pstmt.execute();
             System.out.println("HERE 2");
 
-            String insertAcc3 = "insert into account(aid , aname , balance) values (? , ?, ?)";
+            String insertAcc3 = "insert into account(aid , aname , email , phone, address , balance) values (? , ? , ? , ? , ?, ?)";
             pstmt = Connections.openConn().prepareStatement(insertAcc3);
             pstmt.setInt(1, 3);
             pstmt.setString(2, "hello3");
-            pstmt.setInt(3, 10043);
+            pstmt.setString(3, "capamerica@test.com");
+            pstmt.setInt(4, 87654321);
+            pstmt.setString(5, "ocean");
+            pstmt.setInt(6, 10043);
             pstmt.execute();
             System.out.println("HERE 3");
 
