@@ -17,12 +17,21 @@ public class TellerManager {
                 break;
 
             case "login":
-                System.out.print("Enter Teller Name: ");
-                String login_tname = Application.scan.nextLine();
-                Console console = System.console();
-                char[] login_tpass = console.readPassword("Enter Teller Password: ");
-                LoginTeller.login(login_tname, new String(login_tpass));
+                int tCount = 0;
+                while (tCount <3) {
+                    System.out.print("Enter Teller Name: ");
+                    String login_tname = Application.scan.nextLine();
+                    Console console = System.console();
+                    char[] login_tpass = console.readPassword("Enter Teller Password: ");
+                    LoginTeller.login(login_tname, new String(login_tpass));
+                    tCount +=1;
+                }
+                if (LoginTeller.auth == false) {
+                    System.out.println("3 failed login attempts. Exiting now!");
+                    System.exit(-1);
+                }
                 break;
+                
 
             case "delete":
                 System.out.print("Enter Teller Name to close: ");
