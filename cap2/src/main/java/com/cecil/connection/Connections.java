@@ -13,7 +13,8 @@ public class Connections {
             // conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/cap2", "root", "dummy");
             // conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","root", "dummy");
             // conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","cecil", "pass");
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","shurui99", "pass");
+            // conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","shurui99", "pass");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","john", "pass");
             assert conn != null : "Connection not successful";
         } catch (SQLException se) {
             se.printStackTrace();

@@ -12,12 +12,16 @@ public class ViewAllAccounts {
             PreparedStatement pstmt = Connections.openConn().prepareStatement("select * from Account");
             ResultSet r = pstmt.executeQuery();
 
+            int cnt = 1;
+            String reset = "\u001B[0m"; // Reset color
+            String red = "\u001B[31m";   // Red
+            String green = "\u001B[32m"; // Green
+            // String white = "\u001B[37m";  // White
+            System.out.printf("%s%-6s | %-15s | %-15s | %-10s %s%n", red, "Index.", "Account ID", "Holder Name", "Account Balance", reset);
             while (r.next()) {
-                System.out.println("=====================================================");
-                System.out.println("Account ID      : " + r.getInt("aid"));
-                System.out.println("Account Name    : " + r.getString("aname"));
-                System.out.println("Account Balance : " + r.getInt("balance"));
-                System.out.println("======================================================");
+                System.out.printf("%s%-6s | %-15s | %-15s | $%10.2f  %s%n", green, cnt + ".", r.getInt("aid"), r.getString("aname"), r.getDouble("balance"), reset);
+                cnt += 1;
+               
             }
             
         } catch (SQLException se) {
