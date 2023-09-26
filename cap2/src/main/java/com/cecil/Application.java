@@ -16,14 +16,13 @@ public class Application {
             System.out.println("1. Login");
             System.out.println("2. Exit");
             scan = new Scanner(System.in);
-            int option = scan.nextInt();
-            scan.nextLine();
+            String option = scan.nextLine();
             TellerManager tellmgr = new TellerManager();
             switch (option) {
-                case 1:
+                case "1":
                     tellmgr.execute("login");
                     break;
-                case 2:
+                case "2":
                     System.exit(-1);
                     break;
 
