@@ -16,16 +16,17 @@ public class DeleteAccount {
             pstmt.setInt(1, aid);
             Boolean exist = true;
 
-            ResultSet r_aname = pstmt.executeQuery();
+            ResultSet r = pstmt.executeQuery();
             String aname = "";
             System.out.println("===================================================");
-            if (r_aname.next()) {
-                System.out.println("Account ID      : " + r_aname.getInt("aid"));
-                System.out.println("Account Name    : " + r_aname.getString("aname"));
-                System.out.println("Account Email   : " + r_aname.getString("email"));
-                System.out.println("Account Phone No: " + r_aname.getInt("phone"));
-                System.out.println("Account Address : " + r_aname.getString("address"));
-                System.out.println("Account Balance : " + r_aname.getDouble("balance"));
+            if (r.next()) {
+                aname = r.getString("aname");
+                System.out.println("Account ID      : " + r.getInt("aid"));
+                System.out.println("Account Name    : " + r.getString("aname"));
+                System.out.println("Account Email   : " + r.getString("email"));
+                System.out.println("Account Phone No: " + r.getInt("phone"));
+                System.out.println("Account Address : " + r.getString("address"));
+                System.out.println("Account Balance : " + r.getDouble("balance"));
                 System.out.println("===================================================");
             } else {
                 System.out.println("Account ID " + aid + " does not exist!!!");
