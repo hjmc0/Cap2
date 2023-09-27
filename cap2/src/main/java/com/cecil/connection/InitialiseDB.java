@@ -12,6 +12,8 @@ public class InitialiseDB {
         String dropAcc = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE account'; EXCEPTION WHEN OTHERS THEN NULL; END;";
         String dropTrans = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE transaction'; EXCEPTION WHEN OTHERS THEN NULL; END;";
         String dropTeller = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE teller'; EXCEPTION WHEN OTHERS THEN NULL; END;";
+        String dropClosedAcc = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE closedtransaction'; EXCEPTION WHEN OTHERS THEN NULL; END;";
+        String dropClosedTrans = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE closedteller'; EXCEPTION WHEN OTHERS THEN NULL; END;";
 
         try {
             pstmt = Connections.openConn().prepareStatement(dropTrans);
@@ -23,6 +25,12 @@ public class InitialiseDB {
             pstmt = Connections.openConn().prepareStatement(dropTeller);
             pstmt.execute();
             System.out.println("Teller table dropped if exist");
+            pstmt = Connections.openConn().prepareStatement(dropClosedTrans);
+            pstmt.execute();
+            System.out.println("Closed Transaction table dropped if exist");
+            pstmt = Connections.openConn().prepareStatement(dropClosedAcc);
+            pstmt.execute();
+            System.out.println("Closed Account table dropped if exist");
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -33,9 +41,12 @@ public class InitialiseDB {
     }
 
     public static void createDB() {
-        String createAcc = "create table Account(aid number(3) primary key, aname varchar2(50) not null, email varchar2(30), phone number(12), address varchar2(30), balance number(38,2) not null)";
+        String createAcc = "create table Account(aid number(3) primary key, aname varchar2(50) not null, email varchar2(30), phone number(12), address varchar2(30), balance number(38,2) not null, status varchar2(20) not null)";
         String createTrans = "create table Transaction(trans_id number(10) primary key, trans_date timestamp not null, trans_type varchar2(10) not null, aid number(3), CONSTRAINT fk_aid FOREIGN KEY (aid) REFERENCES Account(aid) on delete cascade, amount number(38,2) not null)";
         String createTeller = "create table teller(tname varchar2(6), tpass varchar2(6))";
+        String createClosedAcc = "create table closedaccount(aid number(3) primary key, aname varchar2(50) not null, email varchar2(30), phone number(12), address varchar2(30), balance number(38,2) not null, status varchar2(20) not null)";
+        String createClosedTrans = "create table closedtransaction(trans_id number(10) primary key, trans_date timestamp not null, trans_type varchar2(10) not null, aid number(3), CONSTRAINT fk_aid FOREIGN KEY (aid) REFERENCES closedaccount(aid) on delete cascade, amount number(38,2) not null)";
+
         try {
             pstmt = Connections.openConn().prepareStatement(createAcc);
             pstmt.execute();
@@ -46,6 +57,13 @@ public class InitialiseDB {
             pstmt = Connections.openConn().prepareStatement(createTeller);
             pstmt.execute();
             System.out.println("Teller table created");
+            pstmt = Connections.openConn().prepareStatement(createClosedAcc);
+            pstmt.execute();
+            System.out.println("Closed Account table created");
+            pstmt = Connections.openConn().prepareStatement(createClosedTrans);
+            pstmt.execute();
+            System.out.println("Closed Transaction table created");
+            
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
