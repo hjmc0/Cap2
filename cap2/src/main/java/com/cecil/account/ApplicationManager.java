@@ -32,7 +32,6 @@ public class ApplicationManager {
                     } catch (NumberFormatException ne) {
                         System.out.println("Invalid Phone Number! Please try again");
                     }
-
                 }
 
                 System.out.print("Enter Account Holder's Address: ");
@@ -162,6 +161,21 @@ public class ApplicationManager {
 
                 break;
             case "viewtranshist":
+                System.out.print("Enter Account ID: ");
+                input1 = Application.scan.nextLine();
+                if (!input1.equals("q")) {
+                    try {
+                        int view_trans_aid = Integer.valueOf(input1);
+                        ViewTransHist.viewPastTransactions(view_trans_aid);
+                    } catch (NumberFormatException ne) {
+                        System.out.println("Invalid Account Number!");
+                    }
+                }
+                break;
+            case "viewcloseacc":
+                ViewClosedAccounts.view();
+                break;
+            case "viewcloseth":
                 System.out.print("Enter Account ID: ");
                 input1 = Application.scan.nextLine();
                 if (!input1.equals("q")) {

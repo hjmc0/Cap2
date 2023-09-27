@@ -6,10 +6,10 @@ import java.sql.SQLException;
 
 import com.cecil.connection.Connections;
 
-public class ViewAllAccounts {
+public class ViewClosedAccounts {
     public static void view() {
         try {
-            PreparedStatement pstmt = Connections.openConn().prepareStatement("select * from Account");
+            PreparedStatement pstmt = Connections.openConn().prepareStatement("select * from ClosedAccount");
             ResultSet r = pstmt.executeQuery();
 
             int cnt = 1;

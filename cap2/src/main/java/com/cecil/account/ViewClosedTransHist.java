@@ -8,13 +8,13 @@ import java.text.SimpleDateFormat;
 
 import com.cecil.connection.Connections;
 
-public class ViewTransHist {
+public class ViewClosedTransHist {
     // move to transaction.java later
     public static void viewPastTransactions(int aid) {
         Connection conn;
         try {
             conn = Connections.openConn();
-            PreparedStatement pstmt = conn.prepareStatement("select * from Transaction where aid = ?");
+            PreparedStatement pstmt = conn.prepareStatement("select * from ClosedTransaction where aid = ?");
             pstmt.setInt(1, aid);
             ResultSet r = pstmt.executeQuery();
 

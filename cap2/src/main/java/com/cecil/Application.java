@@ -45,7 +45,9 @@ public class Application {
             System.out.println("8. View Transaction History");
             System.out.println("9. Create Teller");
             System.out.println("10. Delete Teller");
-            System.out.println("11. Exit");
+            System.out.println("11. View Closed Accounts");
+            System.out.println("12. View Closed Accounts Transaction History");
+            System.out.println("13. Exit");
 
             int choice = scan.nextInt();
             scan.nextLine();
@@ -91,6 +93,12 @@ public class Application {
                     tellmgr.execute("delete");
                     break;
                 case 11:
+                    tellmgr.execute("viewcloseacc");
+                    break;
+                case 12:
+                    tellmgr.execute("viewcloseth");
+                    break;
+                case 13:
                     toContinue = false;
                     break;
                 default:
