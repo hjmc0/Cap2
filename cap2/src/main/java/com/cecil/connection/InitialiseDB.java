@@ -69,7 +69,7 @@ public class InitialiseDB {
             pstmt.execute();
 
 
-            String insertAcc1 = "insert into account(aid , aname , email , phone, address , balance) values (? , ? , ? , ? , ?, ?)";
+            String insertAcc1 = "insert into account(aid , aname , email , phone, address , balance) values (? , ? , ? , ? , ?, ?,?)";
             pstmt = Connections.openConn().prepareStatement(insertAcc1);
             pstmt.setInt(1, 1);
             pstmt.setString(2, "hello1");
@@ -77,6 +77,7 @@ public class InitialiseDB {
             pstmt.setInt(4, 12345678);
             pstmt.setString(5, "ntuclhub");
             pstmt.setDouble(6, 10000);
+            pstmt.setString(7, "active");
             pstmt.execute();
             System.out.println("HERE 1");
 
@@ -88,6 +89,7 @@ public class InitialiseDB {
             pstmt.setInt(4, 23546235);
             pstmt.setString(5, "new york");
             pstmt.setInt(6, 1003);
+            pstmt.setString(7, "frozen");
             pstmt.execute();
             System.out.println("HERE 2");
 
@@ -99,6 +101,7 @@ public class InitialiseDB {
             pstmt.setInt(4, 87654321);
             pstmt.setString(5, "ocean");
             pstmt.setInt(6, 10043);
+            pstmt.setString(7, "active");
             pstmt.execute();
             System.out.println("HERE 3");
 
