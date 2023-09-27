@@ -1,6 +1,12 @@
 package com.cecil.account;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import com.cecil.Application;
+import com.cecil.connection.Connections;
+import com.mysql.cj.xdevapi.PreparableStatement;
 
 public class ApplicationManager {
     public void execute(String operation) {
@@ -50,15 +56,31 @@ public class ApplicationManager {
 
             case "modify":
                 int mod_aid;
+                PreparedStatement pstmt;
+                ResultSet r;
                 System.out.print("Enter Account ID: ");
                 input1 = Application.scan.nextLine();
 
+                
                 try {
                     mod_aid = Integer.valueOf(input1);
                 } catch (Exception e) {
                     System.out.println("Invalid Account Number!");
                     break;
                 }
+                
+                try {
+                    pstmt = Connections.openConn().prepareStatement("select * from account where aid = ?");
+                    pstmt.setInt(1, Integer.valueOf(input1));
+                    r = pstmt.executeQuery();
+                    if(!r.next()){
+                        System.out.println("\u001B[31m-------------Account does not exist-----------------\u001B[0m");
+                        break;
+                    }
+                }  catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
 
                 boolean to_continue = true;
 
