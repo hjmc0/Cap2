@@ -42,7 +42,10 @@ public class Deposit {
             }
 
             if (temp == aid) {
-
+                if (!CheckActive.isActive(aid)){
+                    System.out.println("Account inactive, cannot deposit!");
+                    return;
+                }
                 while (sure != 1) {
                     System.out.println("--------------------" + cyan + "CURRENT BALANCE $"
                             + String.format("%.2f", curBal) + reset + " --------------------");

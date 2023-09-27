@@ -40,7 +40,10 @@ public class Withdraw {
             }
 
             if (temp == acctID) {
-
+                if (! CheckActive.isActive(acctID)){
+                    System.out.println("Account inactive, cannot withdraw!");
+                    return;
+                }
                 while (sure != 1) {
                     System.out.println("-------------------- " + cyan + "CURRENT BALANCE: $"
                             + String.format("%.2f", curBal) + reset + " --------------------");
