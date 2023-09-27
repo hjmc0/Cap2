@@ -43,20 +43,25 @@ public class ModifyAccount {
 
                 case "status":
                     if (CheckActive.isActive(aid)){
-                        System.out.println("Do you want to freeze Account "+aid+"? (Y/N)");
+                        System.out.print("Do you want to freeze Account "+aid+"? (Y/N)");
                         String input = Application.scan.nextLine();
                         if(input.equalsIgnoreCase("y")){
                             pstmt = Connections.openConn().prepareStatement("update account set status = 'frozen' where aid = ?");
                             pstmt.setInt(1, aid);
+                        }else{
+                            return;
                         }
 
                     }
                     else{
-                        System.out.println("Do you want to activate Account "+aid+"? (Y/N)");
+                        System.out.print("Do you want to activate Account "+aid+"? (Y/N)");
                         String input = Application.scan.nextLine();
                         if(input.equalsIgnoreCase("y")){
                             pstmt = Connections.openConn().prepareStatement("update account set status = 'active' where aid = ?");
                             pstmt.setInt(1, aid);
+                        }
+                        else{
+                            return;
                         }
                         
                     }
