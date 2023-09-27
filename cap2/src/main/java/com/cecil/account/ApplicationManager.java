@@ -190,8 +190,8 @@ public class ApplicationManager {
                 input1 = Application.scan.nextLine();
                 if (!input1.equals("q")) {
                     try {
-                        int view_trans_aid = Integer.valueOf(input1);
-                        ViewTransHist.viewPastTransactions(view_trans_aid);
+                        int view_closetrans_aid = Integer.valueOf(input1);
+                        ViewTransHist.viewPastTransactions(view_closetrans_aid);
                     } catch (NumberFormatException ne) {
                         System.out.println("Invalid Account Number!");
                     }

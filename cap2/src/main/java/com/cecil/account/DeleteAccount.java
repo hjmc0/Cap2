@@ -43,17 +43,17 @@ public class DeleteAccount {
                     pstmt1.setString(1, "closed");
                     pstmt1.setInt(2, aid);
                     pstmt1.execute();
-
+                    
                     String insertClosedAcc = "insert into ClosedAccount select * from account where aid = ?";
                     PreparedStatement pstmt2 = Connections.openConn().prepareStatement(insertClosedAcc);
                     pstmt2.setInt(1, aid);
                     pstmt2.execute();
-
-                    String insertClosedTrans = "insert into ClosedTransaction select * from closetransaction where aid = ?";
+                    
+                    String insertClosedTrans = "insert into ClosedTransaction select * from transaction where aid = ?";
                     PreparedStatement pstmt3 = Connections.openConn().prepareStatement(insertClosedTrans);
                     pstmt3.setInt(1, aid);
                     pstmt3.execute();
-
+                   
                     String deleteAcc = "delete from account where aid = ?";
                     PreparedStatement pstmt4 = Connections.openConn().prepareStatement(deleteAcc);
                     pstmt4.setInt(1, aid);
