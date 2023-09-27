@@ -43,6 +43,10 @@ public class InitialiseDB {
     public static void createDB() {
         String createAcc = "create table Account(aid number(3) primary key, aname varchar2(50) not null, email varchar2(30), phone number(12), address varchar2(30), balance number(38,2) not null, status varchar2(20) not null)";
         String createTrans = "create table Transaction(trans_id number(10) primary key, trans_date timestamp not null, trans_type varchar2(10) not null, aid number(3), CONSTRAINT fk_aid FOREIGN KEY (aid) REFERENCES Account(aid) on delete cascade, amount number(38,2) not null)";
+
+        String createClosedAcc = "create table closedAccount( aid number(3) primary key, aname varchar2(50) not null, email varchar2(30), phone number(12), address varchar2(30), balance number(38,2) not null, status varchar2(20) not null)";
+        String createClosedTrans = "create table closedTransaction( trans_id number(10) primary key, trans_date timestamp not null, trans_type varchar2(10) not null, aid number(3), CONSTRAINT fk_closeaid FOREIGN KEY (aid) REFERENCES closedaccount(aid) on delete cascade, amount number(38,2) not null)";
+
         String createTeller = "create table teller(tname varchar2(6), tpass varchar2(6))";
         String createClosedAcc = "create table closedaccount(aid number(3) primary key, aname varchar2(50) not null, email varchar2(30), phone number(12), address varchar2(30), balance number(38,2) not null, status varchar2(20) not null)";
         String createClosedTrans = "create table closedtransaction(trans_id number(10) primary key, trans_date timestamp not null, trans_type varchar2(10) not null, aid number(3), CONSTRAINT fk_aid FOREIGN KEY (aid) REFERENCES closedaccount(aid) on delete cascade, amount number(38,2) not null)";
@@ -63,7 +67,6 @@ public class InitialiseDB {
             pstmt = Connections.openConn().prepareStatement(createClosedTrans);
             pstmt.execute();
             System.out.println("Closed Transaction table created");
-            
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -86,8 +89,7 @@ public class InitialiseDB {
             pstmt.setString(2, "admin");
             pstmt.execute();
 
-
-            String insertAcc1 = "insert into account(aid , aname , email , phone, address , balance) values (? , ? , ? , ? , ?, ?)";
+            String insertAcc1 = "insert into account(aid , aname , email , phone, address , balance, status) values (? , ? , ? , ? , ?, ?,?)";
             pstmt = Connections.openConn().prepareStatement(insertAcc1);
             pstmt.setInt(1, 1);
             pstmt.setString(2, "hello1");
@@ -95,10 +97,11 @@ public class InitialiseDB {
             pstmt.setInt(4, 12345678);
             pstmt.setString(5, "ntuclhub");
             pstmt.setDouble(6, 10000);
+            pstmt.setString(7, "active");
             pstmt.execute();
             System.out.println("HERE 1");
 
-            String insertAcc2 = "insert into account(aid , aname , email , phone, address , balance) values (? , ? , ? , ? , ?, ?)";
+            String insertAcc2 = "insert into account(aid , aname , email , phone, address , balance, status) values (? , ? , ? , ? , ?, ?, ?)";
             pstmt = Connections.openConn().prepareStatement(insertAcc2);
             pstmt.setInt(1, 2);
             pstmt.setString(2, "hello2");
@@ -106,10 +109,11 @@ public class InitialiseDB {
             pstmt.setInt(4, 23546235);
             pstmt.setString(5, "new york");
             pstmt.setInt(6, 1003);
+            pstmt.setString(7, "frozen");
             pstmt.execute();
             System.out.println("HERE 2");
 
-            String insertAcc3 = "insert into account(aid , aname , email , phone, address , balance) values (? , ? , ? , ? , ?, ?)";
+            String insertAcc3 = "insert into account(aid , aname , email , phone, address , balance, status) values (? , ? , ? , ? , ?, ?,?)";
             pstmt = Connections.openConn().prepareStatement(insertAcc3);
             pstmt.setInt(1, 3);
             pstmt.setString(2, "hello3");
@@ -117,6 +121,7 @@ public class InitialiseDB {
             pstmt.setInt(4, 87654321);
             pstmt.setString(5, "ocean");
             pstmt.setInt(6, 10043);
+            pstmt.setString(7, "active");
             pstmt.execute();
             System.out.println("HERE 3");
 
@@ -161,8 +166,6 @@ public class InitialiseDB {
     }
 
     public static void main(String[] args) {
-        dropDB();
-        createDB();
         initialise();
         createDummy();
     }

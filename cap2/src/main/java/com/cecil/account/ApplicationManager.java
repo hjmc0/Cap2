@@ -1,6 +1,11 @@
 package com.cecil.account;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import com.cecil.Application;
+import com.cecil.connection.Connections;
 
 public class ApplicationManager {
     public void execute(String operation) {
@@ -32,7 +37,6 @@ public class ApplicationManager {
                     } catch (NumberFormatException ne) {
                         System.out.println("Invalid Phone Number! Please try again");
                     }
-
                 }
 
                 System.out.print("Enter Account Holder's Address: ");
@@ -51,36 +55,61 @@ public class ApplicationManager {
 
             case "modify":
                 int mod_aid;
+                PreparedStatement pstmt;
+                ResultSet r;
                 System.out.print("Enter Account ID: ");
                 input1 = Application.scan.nextLine();
 
+                
                 try {
                     mod_aid = Integer.valueOf(input1);
                 } catch (Exception e) {
                     System.out.println("Invalid Account Number!");
                     break;
                 }
+                
+                try {
+                    pstmt = Connections.openConn().prepareStatement("select * from account where aid = ?");
+                    pstmt.setInt(1, Integer.valueOf(input1));
+                    r = pstmt.executeQuery();
+                    if(!r.next()){
+                        System.out.println("\u001B[31m-------------Account does not exist-----------------\u001B[0m");
+                        break;
+                    }
+                }  catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
 
                 boolean to_continue = true;
 
                 while (to_continue) {
                     if (!input1.equals("q")) {
-                        System.out.println("Enter Field to edit: ");
                         System.out.println("1. Account Name");
                         System.out.println("2. Email");
                         System.out.println("3. Phone Number");
                         System.out.println("4. Address");
+                        System.out.println("5. Freeze/Activate Account");
+                        System.out.print("Enter Field to edit: ");
 
                         input2 = Application.scan.nextLine();
                         String input2_label = input2.equals("1") ? "Account Name"
-                                : input2.equals("2") ? "Email" : input2.equals("3") ? "Phone Number" : "Address";
+                                : input2.equals("2") ? "Email"
+                                        : input2.equals("3") ? "Phone Number"
+                                                : input2.equals("4") ? "Address" : "Status";
 
                         if (!input2.equals("q")) {
-                            System.out.print("Enter new value for " + input2_label + ": ");
-                            input3 = Application.scan.nextLine();
+                            if (input2.equals("5")) {
+                                input3 = "";
+                            } else {
+                                System.out.print("Enter new value for " + input2_label + ": ");
+                                input3 = Application.scan.nextLine();
+                            }
                             if (!input3.equals("q")) {
                                 input2 = input2.equals("1") ? "aname"
-                                        : input2.equals("2") ? "email" : input2.equals("3") ? "phone" : "address";
+                                        : input2.equals("2") ? "email"
+                                                : input2.equals("3") ? "phone"
+                                                        : input2.equals("4") ? "address" : "status";
 
                                 if (input2.equalsIgnoreCase("phone")) {
                                     try {
@@ -121,6 +150,7 @@ public class ApplicationManager {
                 System.out.println("---------------------------------------------------------------");
                 System.out.print("Enter the Account ID: ");
                 input1 = Application.scan.nextLine();
+
                 if (!input1.equals("q")) {
                     try {
                         int deposit_aid = Integer.valueOf(input1);
@@ -168,6 +198,21 @@ public class ApplicationManager {
                     try {
                         int view_trans_aid = Integer.valueOf(input1);
                         ViewTransHist.viewPastTransactions(view_trans_aid);
+                    } catch (NumberFormatException ne) {
+                        System.out.println("Invalid Account Number!");
+                    }
+                }
+                break;
+            case "viewcloseacc":
+                ViewClosedAccounts.viewCloseAcc();
+                break;
+            case "viewcloseth":
+                System.out.print("Enter Account ID: ");
+                input1 = Application.scan.nextLine();
+                if (!input1.equals("q")) {
+                    try {
+                        int view_closetrans_aid = Integer.valueOf(input1);
+                        ViewClosedTransHist.viewCloseTransactions(view_closetrans_aid);
                     } catch (NumberFormatException ne) {
                         System.out.println("Invalid Account Number!");
                     }
