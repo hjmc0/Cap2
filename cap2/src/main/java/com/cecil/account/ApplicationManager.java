@@ -6,7 +6,6 @@ import java.sql.SQLException;
 
 import com.cecil.Application;
 import com.cecil.connection.Connections;
-import com.mysql.cj.xdevapi.PreparableStatement;
 
 public class ApplicationManager {
     public void execute(String operation) {

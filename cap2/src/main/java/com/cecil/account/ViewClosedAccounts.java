@@ -16,11 +16,7 @@ public class ViewClosedAccounts {
             String reset = "\u001B[0m"; // Reset color
             String red = "\u001B[31m"; // Red
             String green = "\u001B[32m"; // Green
-<<<<<<< Updated upstream
-            System.out.printf("%s%-6s | %-10s | %-15s | %-25s | %-15s | %-15s | %10s | %12s %s%n", red,
-=======
             System.out.printf("%s%-6s | %-10s | %-15s | %-25s | %-15s | %-15s | %14s | %8s %s%n", red,
->>>>>>> Stashed changes
                     "Index.", "Account ID", "Name", "Email", "Phone Number", "Address", "Account Balance", "Status", reset);
                     System.out.println("----------------------------------------------------------------------------------------------------------------------------------");
             while (r.next()) {

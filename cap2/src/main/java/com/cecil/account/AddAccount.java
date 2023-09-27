@@ -9,7 +9,7 @@ import com.cecil.connection.Connections;
 public class AddAccount {
         public static void add(String aname, String email, Integer phone, String address, double balance) {
                 try {
-                        String sql = "select max(aid) from account";
+                        String sql = "select max(aid) from (SELECT aid FROM account UNION SELECT aid FROM closedaccount) as combinedAccount";
                         PreparedStatement pstmt = Connections.openConn().prepareStatement(sql);
 
                         ResultSet s = pstmt.executeQuery();
