@@ -69,7 +69,7 @@ public class InitialiseDB {
             pstmt.execute();
 
 
-            String insertAcc1 = "insert into account(aid , aname , email , phone, address , balance) values (? , ? , ? , ? , ?, ?,?)";
+            String insertAcc1 = "insert into account(aid , aname , email , phone, address , balance, status) values (? , ? , ? , ? , ?, ?,?)";
             pstmt = Connections.openConn().prepareStatement(insertAcc1);
             pstmt.setInt(1, 1);
             pstmt.setString(2, "hello1");
@@ -81,7 +81,7 @@ public class InitialiseDB {
             pstmt.execute();
             System.out.println("HERE 1");
 
-            String insertAcc2 = "insert into account(aid , aname , email , phone, address , balance) values (? , ? , ? , ? , ?, ?)";
+            String insertAcc2 = "insert into account(aid , aname , email , phone, address , balance, status) values (? , ? , ? , ? , ?, ?, ?)";
             pstmt = Connections.openConn().prepareStatement(insertAcc2);
             pstmt.setInt(1, 2);
             pstmt.setString(2, "hello2");
@@ -93,7 +93,7 @@ public class InitialiseDB {
             pstmt.execute();
             System.out.println("HERE 2");
 
-            String insertAcc3 = "insert into account(aid , aname , email , phone, address , balance) values (? , ? , ? , ? , ?, ?)";
+            String insertAcc3 = "insert into account(aid , aname , email , phone, address , balance, status) values (? , ? , ? , ? , ?, ?,?)";
             pstmt = Connections.openConn().prepareStatement(insertAcc3);
             pstmt.setInt(1, 3);
             pstmt.setString(2, "hello3");
