@@ -121,6 +121,7 @@ public class ApplicationManager {
                 System.out.println("---------------------------------------------------------------");
                 System.out.print("Enter the Account ID: ");
                 input1 = Application.scan.nextLine();
+
                 if (!input1.equals("q")) {
                     try {
                         int deposit_aid = Integer.valueOf(input1);
