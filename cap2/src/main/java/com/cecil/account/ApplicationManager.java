@@ -69,17 +69,26 @@ public class ApplicationManager {
                         System.out.println("2. Email");
                         System.out.println("3. Phone Number");
                         System.out.println("4. Address");
+                        System.out.println("5. Status");
 
                         input2 = Application.scan.nextLine();
                         String input2_label = input2.equals("1") ? "Account Name"
-                                : input2.equals("2") ? "Email" : input2.equals("3") ? "Phone Number" : "Address";
+                                : input2.equals("2") ? "Email"
+                                        : input2.equals("3") ? "Phone Number"
+                                                : input2.equals("4") ? "Address" : "Status";
 
                         if (!input2.equals("q")) {
-                            System.out.print("Enter new value for " + input2_label + ": ");
-                            input3 = Application.scan.nextLine();
+                            if (input2.equals("5")) {
+                                input3 = "";
+                            } else {
+                                System.out.print("Enter new value for " + input2_label + ": ");
+                                input3 = Application.scan.nextLine();
+                            }
                             if (!input3.equals("q")) {
                                 input2 = input2.equals("1") ? "aname"
-                                        : input2.equals("2") ? "email" : input2.equals("3") ? "phone" : "address";
+                                        : input2.equals("2") ? "email"
+                                                : input2.equals("3") ? "phone"
+                                                        : input2.equals("4") ? "address" : "status";
 
                                 if (input2.equalsIgnoreCase("phone")) {
                                     try {
@@ -120,6 +129,7 @@ public class ApplicationManager {
                 System.out.println("---------------------------------------------------------------");
                 System.out.print("Enter the Account ID: ");
                 input1 = Application.scan.nextLine();
+
                 if (!input1.equals("q")) {
                     try {
                         int deposit_aid = Integer.valueOf(input1);
