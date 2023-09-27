@@ -39,10 +39,20 @@ public class DeleteAccount {
                 if (choice.equalsIgnoreCase("y")) {
                     // String deleteTrans = "delete from transaction where aid = "+aid;
                     // stmt.execute(deleteTrans);
-                    String deleteAcc = "delete from account where aid = ?";
-                    PreparedStatement pstmt1 = Connections.openConn().prepareStatement(deleteAcc);
+                    String insertClosedAcc = "insert into ClosedAccount select * from account where aid = ?";
+                    PreparedStatement pstmt1 = Connections.openConn().prepareStatement(insertClosedAcc);
                     pstmt1.setInt(1, aid);
                     pstmt1.execute();
+
+                    String insertClosedTrans = "insert into ClosedTransaction select * from closetransaction where aid = ?";
+                    PreparedStatement pstmt2 = Connections.openConn().prepareStatement(insertClosedTrans);
+                    pstmt2.setInt(1, aid);
+                    pstmt2.execute();
+
+                    String deleteAcc = "delete from account where aid = ?";
+                    PreparedStatement pstmt3 = Connections.openConn().prepareStatement(deleteAcc);
+                    pstmt3.setInt(1, aid);
+                    pstmt3.execute();
 
                     System.out.println(aname + " (Account ID " + aid + ") and all transaction histories deleted !!");
                 }
