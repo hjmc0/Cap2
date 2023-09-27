@@ -41,7 +41,7 @@ public class Withdraw {
 
             if (temp == acctID) {
                 if (! CheckActive.isActive(acctID)){
-                    System.out.println("Account inactive, cannot withdraw!");
+                    System.out.println(red+"Account inactive, cannot withdraw!"+reset);
                     return;
                 }
                 while (sure != 1) {
