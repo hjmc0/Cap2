@@ -43,7 +43,7 @@ public class Deposit {
 
             if (temp == aid) {
                 if (!CheckActive.isActive(aid)){
-                    System.out.println("Account inactive, cannot deposit!");
+                    System.out.println(red+"Account inactive, cannot deposit!"+reset);
                     return;
                 }
                 while (sure != 1) {

@@ -64,12 +64,12 @@ public class ApplicationManager {
 
                 while (to_continue) {
                     if (!input1.equals("q")) {
-                        System.out.println("Enter Field to edit: ");
                         System.out.println("1. Account Name");
                         System.out.println("2. Email");
                         System.out.println("3. Phone Number");
                         System.out.println("4. Address");
                         System.out.println("5. Freeze/Activate Account");
+                        System.out.print("Enter Field to edit: ");
 
                         input2 = Application.scan.nextLine();
                         String input2_label = input2.equals("1") ? "Account Name"
