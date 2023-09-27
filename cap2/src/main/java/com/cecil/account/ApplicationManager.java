@@ -69,7 +69,7 @@ public class ApplicationManager {
                         System.out.println("2. Email");
                         System.out.println("3. Phone Number");
                         System.out.println("4. Address");
-                        System.out.println("5. Status");
+                        System.out.println("5. Freeze/Activate Account");
 
                         input2 = Application.scan.nextLine();
                         String input2_label = input2.equals("1") ? "Account Name"
