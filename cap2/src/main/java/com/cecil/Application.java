@@ -93,10 +93,10 @@ public class Application {
                     tellmgr.execute("delete");
                     break;
                 case 11:
-                    tellmgr.execute("viewcloseacc");
+                    appmgr.execute("viewcloseacc");
                     break;
                 case 12:
-                    tellmgr.execute("viewcloseth");
+                    appmgr.execute("viewcloseth");
                     break;
                 case 13:
                     toContinue = false;
