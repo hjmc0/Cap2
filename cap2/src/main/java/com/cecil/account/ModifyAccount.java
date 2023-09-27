@@ -3,6 +3,7 @@ package com.cecil.account;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import com.cecil.Application;
 import com.cecil.connection.Connections;
 
 public class ModifyAccount {
@@ -38,6 +39,28 @@ public class ModifyAccount {
                             .prepareStatement("update account set address = ? where aid = ?");
                     pstmt.setString(1, new_val);
                     pstmt.setInt(2, aid);
+                    break;
+
+                case "status":
+                    if (CheckActive.isActive(aid)){
+                        System.out.println("Do you want to freeze Account "+aid+"? (Y/N)");
+                        String input = Application.scan.nextLine();
+                        if(input.equalsIgnoreCase("y")){
+                            pstmt = Connections.openConn().prepareStatement("update account set status = 'frozen' where aid = ?");
+                            pstmt.setInt(1, aid);
+                        }
+
+                    }
+                    else{
+                        System.out.println("Do you want to activate Account "+aid+"? (Y/N)");
+                        String input = Application.scan.nextLine();
+                        if(input.equalsIgnoreCase("y")){
+                            pstmt = Connections.openConn().prepareStatement("update account set status = 'active' where aid = ?");
+                            pstmt.setInt(1, aid);
+                        }
+                        
+                    }
+                    
                     break;
 
             }
