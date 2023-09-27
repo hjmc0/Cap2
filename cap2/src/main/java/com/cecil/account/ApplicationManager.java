@@ -183,7 +183,7 @@ public class ApplicationManager {
                 }
                 break;
             case "viewcloseacc":
-                ViewClosedAccounts.view();
+                ViewClosedAccounts.viewCloseAcc();
                 break;
             case "viewcloseth":
                 System.out.print("Enter Account ID: ");
@@ -191,7 +191,7 @@ public class ApplicationManager {
                 if (!input1.equals("q")) {
                     try {
                         int view_closetrans_aid = Integer.valueOf(input1);
-                        ViewTransHist.viewPastTransactions(view_closetrans_aid);
+                        ViewClosedTransHist.viewCloseTransactions(view_closetrans_aid);
                     } catch (NumberFormatException ne) {
                         System.out.println("Invalid Account Number!");
                     }

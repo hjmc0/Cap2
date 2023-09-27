@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import com.cecil.connection.Connections;
 
 public class ViewClosedAccounts {
-    public static void view() {
+    public static void viewCloseAcc() {
         try {
             PreparedStatement pstmt = Connections.openConn().prepareStatement("select * from ClosedAccount");
             ResultSet r = pstmt.executeQuery();

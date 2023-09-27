@@ -10,7 +10,7 @@ import com.cecil.connection.Connections;
 
 public class ViewClosedTransHist {
     // move to transaction.java later
-    public static void viewPastTransactions(int aid) {
+    public static void viewCloseTransactions(int aid) {
         Connection conn;
         try {
             conn = Connections.openConn();
