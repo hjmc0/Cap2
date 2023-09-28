@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.cecil.Application;
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class DeleteAccount {
 
@@ -36,29 +37,32 @@ public class DeleteAccount {
             if (exist) {
                 System.out.print("Above account will be deleted. Are you sure (y/n) ?????");
                 String choice = Application.scan.nextLine();
+                Logging.openLog(
+                        "Teller chose option " + choice + " when prompted to delete account with aid " + aid + ".");
                 if (choice.equalsIgnoreCase("y")) {
-                    
+
                     String updateClosedStatus = "update account set status = ? where aid = ?";
                     PreparedStatement pstmt1 = Connections.openConn().prepareStatement(updateClosedStatus);
                     pstmt1.setString(1, "closed");
                     pstmt1.setInt(2, aid);
                     pstmt1.execute();
-                    
+
                     String insertClosedAcc = "insert into ClosedAccount select * from account where aid = ?";
                     PreparedStatement pstmt2 = Connections.openConn().prepareStatement(insertClosedAcc);
                     pstmt2.setInt(1, aid);
                     pstmt2.execute();
-                    
+
                     String insertClosedTrans = "insert into ClosedTransaction select * from transaction where aid = ?";
                     PreparedStatement pstmt3 = Connections.openConn().prepareStatement(insertClosedTrans);
                     pstmt3.setInt(1, aid);
                     pstmt3.execute();
-                   
+
                     String deleteAcc = "delete from account where aid = ?";
                     PreparedStatement pstmt4 = Connections.openConn().prepareStatement(deleteAcc);
                     pstmt4.setInt(1, aid);
                     pstmt4.execute();
 
+                    Logging.openLog("Account with aid '" + aid + "' has been deleted.");
                     System.out.println(aname + " (Account ID " + aid + ") and all transaction histories deleted !!");
                 }
             }

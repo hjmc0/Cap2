@@ -5,12 +5,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class ViewAllAccounts {
     public static void view() {
         try {
             PreparedStatement pstmt = Connections.openConn().prepareStatement("select * from Account");
             ResultSet r = pstmt.executeQuery();
+            Logging.openLog("All accounts were viewed by Teller.");
 
             int cnt = 1;
             String reset = "\u001B[0m"; // Reset color
@@ -20,7 +22,8 @@ public class ViewAllAccounts {
             System.out.printf("%s%-6s | %-10s | %-15s | %-25s | %-15s | %-15s | %14s | %8s %s%n", yellow,
                     "Index.", "Account ID", "Name", "Email", "Phone Number", "Address", "Account Balance", "Status",
                     reset);
-            System.out.println("----------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println(
+                    "----------------------------------------------------------------------------------------------------------------------------------");
             while (r.next()) {
                 if (r.getString("status").equalsIgnoreCase("active")) {
                     System.out.printf("%s%-6s | %-10s | %-15s | %-25s | %-15s | %-15s | $%14.2f | %8s %s%n",

@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class AddAccount {
         public static void add(String aname, String email, Integer phone, String address, double balance) {
@@ -27,7 +28,8 @@ public class AddAccount {
                         pstmt1.setDouble(6, balance);
                         pstmt1.setString(7, status);
                         pstmt1.execute();
-
+                        
+                        Logging.openLog("Account with aid '" + aid + "' has been created.");
                         System.out.println(
                                         "=========================ACCOUNT CREATED Successfully!===============================");
                         System.out.println("Name: " + aname);

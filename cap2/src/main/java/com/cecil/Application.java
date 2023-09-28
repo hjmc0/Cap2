@@ -3,6 +3,7 @@ package com.cecil;
 import java.util.Scanner;
 
 import com.cecil.account.ApplicationManager;
+import com.cecil.logs.Logging;
 import com.cecil.teller.LoginTeller;
 import com.cecil.teller.TellerManager;
 
@@ -17,6 +18,7 @@ public class Application {
             System.out.println("2. Exit");
             scan = new Scanner(System.in);
             String option = scan.nextLine();
+            Logging.openLog("Teller chose option " + option + " at login page.");
             TellerManager tellmgr = new TellerManager();
             switch (option) {
                 case "1":
@@ -51,6 +53,7 @@ public class Application {
 
             int choice = scan.nextInt();
             scan.nextLine();
+            Logging.openLog("Teller chose option " + choice + " at main page.");
             ApplicationManager appmgr = new ApplicationManager();
             TellerManager tellmgr = new TellerManager();
 
@@ -111,8 +114,9 @@ public class Application {
             }
 
             System.out.print("Do you want to perform another transaction? (y/n): ");
-            String answer2 = scan.nextLine();
-            if (answer2.equalsIgnoreCase("y")) {
+            String answer = scan.nextLine();
+            Logging.openLog("Teller chose option " + answer + " when prompted to perform another transaction.");
+            if (answer.equalsIgnoreCase("y")) {
                 toContinue = true;
             } else {
                 toContinue = false;

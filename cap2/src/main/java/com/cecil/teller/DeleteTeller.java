@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class DeleteTeller {
     public static void delete(String tname, String tpass) {
@@ -17,6 +18,7 @@ public class DeleteTeller {
 
             ResultSet r = pstmt.executeQuery();
             if (tname.equalsIgnoreCase("admin")) {
+                Logging.openLog("Teller has attempted to delete Teller 'admin'");
                 System.out.println("\u001B[31mDeletion of admin is restricted.\u001B[0m");
             } else {
                 if (r.next()) {
@@ -28,6 +30,7 @@ public class DeleteTeller {
 
                     pstmt1.execute();
 
+                    Logging.openLog("Teller '" + tname + "' has been deleted.");
                     System.out.println("=========================TELLER " + tname
                             + " DELETED Successfully!===============================");
 

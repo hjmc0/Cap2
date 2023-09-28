@@ -6,6 +6,7 @@ import java.sql.SQLException;
 
 import com.cecil.Application;
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class ApplicationManager {
     public void execute(String operation) {
@@ -125,6 +126,7 @@ public class ApplicationManager {
                     }
                     System.out.print("Do you want to edit another field? (Y/N)");
                     String response = Application.scan.nextLine();
+                    Logging.openLog("Teller chose option " + response + " when prompted to edit another account field.");
                     if (response.equalsIgnoreCase("n")) {
                         to_continue = false;
                     }
