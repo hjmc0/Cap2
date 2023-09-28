@@ -1,0 +1,44 @@
+Sep 28, 2023 2:28:41 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 2:28:45 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 2:29:03 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 2:29:08 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 2:29:36 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 2:29:43 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 2:29:44 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at main page.
+Sep 28, 2023 2:31:57 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 2:32:01 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 2:32:02 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at main page.
+Sep 28, 2023 2:32:08 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '4' has been created.
+Sep 28, 2023 2:50:43 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 2:50:48 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 2:53:39 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 2:53:46 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 2:54:03 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 2:54:06 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 2:55:20 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 2:55:23 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 2:57:48 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 2:57:56 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 2:58:01 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at main page.

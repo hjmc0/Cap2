@@ -1,5 +1,6 @@
 package com.cecil;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import com.cecil.account.ApplicationManager;
@@ -33,7 +34,7 @@ public class Application {
                     break;
             }
         }
-
+        
         while (toContinue) {
             System.out.println("Please select from the following options");
             System.out.println("------------------------------------------");
@@ -50,9 +51,20 @@ public class Application {
             System.out.println("11. View Closed Accounts");
             System.out.println("12. View Closed Accounts Transaction History");
             System.out.println("13. Exit");
+                
+            int choice;
 
-            int choice = scan.nextInt();
-            scan.nextLine();
+            try {
+                System.out.println("Select Option:");
+                choice = scan.nextInt();
+                scan.nextLine();
+            } catch (InputMismatchException ie) {
+                System.out.println("Invalid Choice! Please try again");
+                scan.nextLine();
+                continue;
+            }
+
+            
             Logging.openLog("Teller chose option " + choice + " at main page.");
             ApplicationManager appmgr = new ApplicationManager();
             TellerManager tellmgr = new TellerManager();
