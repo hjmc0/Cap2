@@ -55,7 +55,7 @@ public class Application {
             int choice;
 
             try {
-                System.out.println("Select Option:");
+                System.out.print("Select Option:");
                 choice = scan.nextInt();
                 scan.nextLine();
             } catch (InputMismatchException ie) {
@@ -63,7 +63,6 @@ public class Application {
                 scan.nextLine();
                 continue;
             }
-
             
             Logging.openLog("Teller chose option " + choice + " at main page.");
             ApplicationManager appmgr = new ApplicationManager();
