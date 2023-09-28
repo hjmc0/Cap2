@@ -10,7 +10,7 @@ import com.cecil.logs.Logging;
 public class AddAccount {
         public static void add(String aname, String email, Integer phone, String address, double balance) {
                 try {
-                        String sql = "select max(aid) from (SELECT aid FROM account UNION SELECT aid FROM closedaccount) as combinedAccount";
+                        String sql = "WITH combinedAccount AS (SELECT aid FROM cap2.account UNION ALL SELECT aid FROM cap2.closedaccount) SELECT MAX(aid) FROM combinedAccount;";
                         PreparedStatement pstmt = Connections.openConn().prepareStatement(sql);
 
                         ResultSet s = pstmt.executeQuery();
@@ -28,7 +28,7 @@ public class AddAccount {
                         pstmt1.setDouble(6, balance);
                         pstmt1.setString(7, status);
                         pstmt1.execute();
-                        
+
                         Logging.openLog("Account with aid '" + aid + "' has been created.");
                         System.out.println(
                                         "=========================ACCOUNT CREATED Successfully!===============================");
