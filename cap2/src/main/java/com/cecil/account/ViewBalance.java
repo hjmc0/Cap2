@@ -26,6 +26,7 @@ public class ViewBalance {
                 System.out.println("Phone Number    : " + r.getInt("phone"));
                 System.out.println("Address         : " + r.getString("address"));
                 System.out.println("Account Balance : " + r.getDouble("balance"));
+                System.out.println("Account Status  : " + r.getString("status"));
             }
             System.out.println("======================================================");
 

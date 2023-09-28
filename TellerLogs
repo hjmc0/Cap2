@@ -2,3 +2,345 @@ Sep 28, 2023 3:44:16 PM com.cecil.logs.Logging openLog
 INFO: Teller chose option 1 at login page.
 Sep 28, 2023 3:44:18 PM com.cecil.logs.Logging openLog
 INFO: Teller 'admin' has logged in.
+Sep 28, 2023 3:46:26 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 3:46:27 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 3:46:28 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at main page.
+Sep 28, 2023 3:46:30 PM com.cecil.logs.Logging openLog
+INFO: No account has been created.
+Sep 28, 2023 3:46:31 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Sep 28, 2023 3:47:24 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 3:47:26 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 3:47:27 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at main page.
+Sep 28, 2023 3:47:31 PM com.cecil.logs.Logging openLog
+INFO: No account has been created.
+Sep 28, 2023 3:48:10 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Sep 28, 2023 3:48:11 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 2 at main page.
+Sep 28, 2023 3:48:11 PM com.cecil.logs.Logging openLog
+INFO: All accounts were viewed by Teller.
+Sep 28, 2023 3:48:12 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Sep 28, 2023 3:48:13 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 3:48:21 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 3:48:21 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 3:51:09 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option  cd /Users/marcuschua/Documents/GitHub/Cap2 ; /usr/bin/env /Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/bin/java @/var/folders/k9/_kxk9s7d0jg3kdhdb_gplb640000gn/T/cp_9xwhm1kviz1vdqth6ntitahoe.argfile com.cecil.Application  when prompted to edit another account field.
+Sep 28, 2023 3:51:20 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 3:51:21 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 3:51:23 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 3:53:52 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 3:53:54 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 3:53:55 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 3:53:58 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 3:54:05 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 3:54:23 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 3:54:25 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 3:54:26 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 3:54:35 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 3:54:42 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 3:55:41 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Sep 28, 2023 3:55:44 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:03:54 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:03:56 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:03:57 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:04:01 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:04:03 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:04:06 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:04:09 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:04:11 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:04:11 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:04:13 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:04:16 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:04:16 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:04:17 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:04:20 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:04:20 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:04:23 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:04:25 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:04:25 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:05:22 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:05:23 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:05:24 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:05:27 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:05:27 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:05:37 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:05:39 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:05:39 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:05:41 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:05:43 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:05:43 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:06:09 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:06:11 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:06:34 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:07:15 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:07:20 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:10:55 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:10:56 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:10:58 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:11:28 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:13:27 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:13:29 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:13:32 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:14:07 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:14:09 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:14:10 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:14:13 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:14:17 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:14:23 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:14:26 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:14:27 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:14:30 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option n when prompted to edit another account field.
+Sep 28, 2023 4:16:31 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:16:36 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:16:38 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:16:42 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:16:45 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:16:47 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:16:47 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:16:49 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:16:53 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:16:56 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:16:58 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:16:58 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:17:01 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:17:03 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:17:40 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:17:42 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:18:27 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:18:29 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:18:31 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:18:34 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:19:02 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:19:04 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:19:05 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:19:10 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:19:14 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:19:16 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:19:18 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:19:21 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:19:22 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option  when prompted to edit another account field.
+Sep 28, 2023 4:19:53 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:19:55 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option sfgn when prompted to edit another account field.
+Sep 28, 2023 4:24:27 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:24:29 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:24:30 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:24:35 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:24:36 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:24:39 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:24:40 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:24:41 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:24:49 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:24:51 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:25:40 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:25:42 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:25:43 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:25:46 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:26:13 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:26:14 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:26:16 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:26:18 PM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Sep 28, 2023 4:27:22 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:27:23 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:27:24 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:27:26 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:27:26 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:27:41 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:27:43 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:27:43 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:27:45 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:27:45 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:28:06 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:28:08 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:28:09 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:28:12 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:28:12 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:28:15 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to edit another account field.
+Sep 28, 2023 4:28:17 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has its balance viewed.
+Sep 28, 2023 4:28:17 PM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been updated.
+Sep 28, 2023 4:30:02 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:30:04 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:30:05 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:30:08 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Sep 28, 2023 4:30:09 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Sep 28, 2023 4:30:12 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Sep 28, 2023 4:30:14 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 2 at main page.
+Sep 28, 2023 4:30:14 PM com.cecil.logs.Logging openLog
+INFO: All accounts were viewed by Teller.
+Sep 28, 2023 4:30:22 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Sep 28, 2023 4:30:24 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at main page.
+Sep 28, 2023 4:30:26 PM com.cecil.logs.Logging openLog
+INFO: No account has been created.
+Sep 28, 2023 4:30:28 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Sep 28, 2023 4:32:25 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:32:29 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:32:38 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 32 at main page.
+Sep 28, 2023 4:32:41 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Sep 28, 2023 4:32:59 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 254 at main page.
+Sep 28, 2023 4:33:02 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option kasong'v when prompted to perform another transaction.
+Sep 28, 2023 4:33:05 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option  at login page.
+Sep 28, 2023 4:33:06 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 4:33:08 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Sep 28, 2023 4:33:15 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.

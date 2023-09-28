@@ -55,7 +55,7 @@ public class Application {
             int choice;
 
             try {
-                System.out.print("Select Option:");
+                System.out.print("Select Option: ");
                 choice = scan.nextInt();
                 scan.nextLine();
             } catch (InputMismatchException ie) {

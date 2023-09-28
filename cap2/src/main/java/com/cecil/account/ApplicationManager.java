@@ -97,12 +97,16 @@ public class ApplicationManager {
                         String input2_label = input2.equals("1") ? "Account Name"
                                 : input2.equals("2") ? "Email"
                                         : input2.equals("3") ? "Phone Number"
-                                                : input2.equals("4") ? "Address" : "Status";
+                                                : input2.equals("4") ? "Address"
+                                                 : input2.equals("5")? "Status" : "";
 
                         if (!input2.equals("q")) {
                             if (input2.equals("5")) {
                                 input3 = "";
-                            } else {
+                            }else if (input2_label.equals("")){
+                                input3 = "";
+                            } 
+                            else {
                                 System.out.print("Enter new value for " + input2_label + ": ");
                                 input3 = Application.scan.nextLine();
                             }
@@ -110,21 +114,14 @@ public class ApplicationManager {
                                 input2 = input2.equals("1") ? "aname"
                                         : input2.equals("2") ? "email"
                                                 : input2.equals("3") ? "phone"
-                                                        : input2.equals("4") ? "address" : "status";
+                                                        : input2.equals("4") ? "address" 
+                                                        : input2.equals("5")?" status": "";
 
-                                if (input2.equalsIgnoreCase("phone")) {
-                                    try {
-                                        Integer.valueOf(input3);
-                                    } catch (Exception e) {
-                                        System.out.println("Invalid Phone Number!");
-                                        break;
-                                    }
-                                }
                                 ModifyAccount.modifyDetails(mod_aid, input2, input3);
                             }
                         }
                     }
-                    System.out.print("Do you want to edit another field? (Y/N)");
+                    System.out.print("Do you want to edit another field? (Y/N): ");
                     String response = Application.scan.nextLine();
                     Logging.openLog("Teller chose option " + response + " when prompted to edit another account field.");
                     if (response.equalsIgnoreCase("n")) {
