@@ -12,8 +12,8 @@ public class InitialiseDB {
         String dropAcc = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE account'; EXCEPTION WHEN OTHERS THEN NULL; END;";
         String dropTrans = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE transaction'; EXCEPTION WHEN OTHERS THEN NULL; END;";
         String dropTeller = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE teller'; EXCEPTION WHEN OTHERS THEN NULL; END;";
-        String dropClosedAcc = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE closedtransaction'; EXCEPTION WHEN OTHERS THEN NULL; END;";
-        String dropClosedTrans = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE closedteller'; EXCEPTION WHEN OTHERS THEN NULL; END;";
+        String dropClosedAcc = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE closetransaction'; EXCEPTION WHEN OTHERS THEN NULL; END;";
+        String dropClosedTrans = "BEGIN EXECUTE IMMEDIATE 'DROP TABLE closeaccount'; EXCEPTION WHEN OTHERS THEN NULL; END;";
 
         try {
             pstmt = Connections.openConn().prepareStatement(dropTrans);
