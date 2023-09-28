@@ -1,0 +1,4 @@
+Sep 28, 2023 3:44:16 PM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Sep 28, 2023 3:44:18 PM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
