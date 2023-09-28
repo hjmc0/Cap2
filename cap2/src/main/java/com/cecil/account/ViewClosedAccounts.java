@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class ViewClosedAccounts {
     public static void viewCloseAcc() {
@@ -20,6 +21,7 @@ public class ViewClosedAccounts {
                     "Index.", "Account ID", "Name", "Email", "Phone Number", "Address", "Account Balance", "Status", reset);
                     System.out.println("----------------------------------------------------------------------------------------------------------------------------------");
             while (r.next()) {
+                Logging.openLog("All closed accounts were viewed by Teller.");
                 System.out.printf("%s%-6s | %-10s | %-15s | %-25s | %-15s | %-15s | $%14.2f | %8s %s%n",
                         green, cnt + ".", r.getInt("aid"), r.getString("aname"), r.getString("email"),
                         r.getInt("phone"), r.getString("address"), r.getDouble("balance"), r.getString("status"), reset);

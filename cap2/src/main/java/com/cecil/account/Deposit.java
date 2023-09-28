@@ -9,6 +9,7 @@ import java.util.InputMismatchException;
 
 import com.cecil.Application;
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class Deposit {
 
@@ -42,8 +43,8 @@ public class Deposit {
             }
 
             if (temp == aid) {
-                if (!CheckActive.isActive(aid)){
-                    System.out.println(red+"Account inactive, cannot deposit!"+reset);
+                if (!CheckActive.isActive(aid)) {
+                    System.out.println(red + "Account inactive, cannot deposit!" + reset);
                     return;
                 }
                 while (sure != 1) {
@@ -107,6 +108,7 @@ public class Deposit {
                 System.out.println("===============================================================");
                 System.out.println("====================== " + bold + cyan + "DEPOSIT COMPLETED " + reset
                         + "======================");
+                Logging.openLog("Account with aid '" + aid + "' has been deposited with $" + tempBal + ".");
                 System.out.println("ACCOUNT NUMBER            :     " + aid);
                 System.out.println("ORIGINAL TOTAL BALANCE    :   $ " + String.format("%.2f", curBal));
                 System.out.println(
@@ -116,6 +118,7 @@ public class Deposit {
                         + "================================");
 
             } else {
+                Logging.openLog("Account with aid '" + aid + "' has not been deposited.");
                 System.out.println(red + "------------ Account ID does not exist, try again! ------------" + reset);
                 System.out.println("     ");
             }
