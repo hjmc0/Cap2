@@ -3,6 +3,7 @@ package com.cecil.teller;
 import java.io.Console;
 
 import com.cecil.Application;
+import com.cecil.logs.Logging;
 
 public class TellerManager {
     public void execute(String operation) {
@@ -32,6 +33,7 @@ public class TellerManager {
                 }
                 if (LoginTeller.auth == false) {
                     System.out.println("3 failed login attempts. Exiting now!");
+                    Logging.openLog("Someone has tried to login using three failed attempts.");
                     System.exit(-1);
                 }
                 break;

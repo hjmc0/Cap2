@@ -9,6 +9,7 @@ import java.util.InputMismatchException;
 
 import com.cecil.Application;
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class Withdraw {
     public static void WithdrawAmt(int acctID) {
@@ -40,8 +41,8 @@ public class Withdraw {
             }
 
             if (temp == acctID) {
-                if (! CheckActive.isActive(acctID)){
-                    System.out.println(red+"Account inactive, cannot withdraw!"+reset);
+                if (!CheckActive.isActive(acctID)) {
+                    System.out.println(red + "Account inactive, cannot withdraw!" + reset);
                     return;
                 }
                 while (sure != 1) {
@@ -117,6 +118,7 @@ public class Withdraw {
                 System.out.println("===============================================================");
                 System.out.println("====================== " + bold + cyan + "WITHDRAW COMPLETED" + reset
                         + " =====================");
+                Logging.openLog("Account with aid '" + acctID + "' has been withdrawn by $" + tempBal + ".");
                 System.out.println("ACCOUNT NUMBER            :     " + acctID);
                 System.out.println("ORIGINAL TOTAL BALANCE    :   $ " + String.format("%.2f", curBal));
                 System.out.println(
@@ -126,7 +128,7 @@ public class Withdraw {
                         + "================================");
 
             } else {
-
+                Logging.openLog("Account with aid '" + acctID + "' has not been withdrawn.");
                 System.out.println(red + "------------ Account ID does not exist, try again! ------------" + reset);
                 System.out.println("     ");
             }

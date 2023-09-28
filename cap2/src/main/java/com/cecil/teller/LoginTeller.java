@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class LoginTeller {
     public static boolean auth = false;
@@ -16,9 +17,9 @@ public class LoginTeller {
 
                 pstmt.setString(1, tname);
                 pstmt.setString(2, tpass);
-                
                 ResultSet r = pstmt.executeQuery();
                 if(r.next() == true){
+                    Logging.openLog("Teller '" + tname + "' has logged in.");
                     auth = true;
                 } else {
                     System.out.println("Invalid login credentials");

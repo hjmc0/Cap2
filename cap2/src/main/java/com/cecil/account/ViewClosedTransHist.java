@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class ViewClosedTransHist {
     // move to transaction.java later
@@ -33,6 +34,7 @@ public class ViewClosedTransHist {
                     "Transaction Amount", reset);
 
             while (r.next()) {
+                Logging.openLog("Closed account with aid '" + aid + "' has its transactions viewed.");
                 if (r.getString("trans_type").equalsIgnoreCase("deposit")) {
                     System.out.printf("%-6s | %-20s | %-15s | %-22s | $%10.2f %s%n",
                             cnt + ".", (dateFormat.format(r.getTimestamp("trans_date")).toString()),
@@ -51,6 +53,7 @@ public class ViewClosedTransHist {
                 }
                 cnt += 1;
             }
+            Logging.openLog("No closed account has its transactions viewed.");
             System.out.println(
                     "========================================================================================");
         } catch (SQLException se) {

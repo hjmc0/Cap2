@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import com.cecil.Application;
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class ModifyAccount {
     static public void modifyDetails(int aid, String field, String new_val) {
@@ -74,8 +75,10 @@ public class ModifyAccount {
             if (rec > 0) {
                 // Let Teller to see the details of the account to be modified
                 ViewBalance.view(aid);
+                Logging.openLog("Account with aid '" + aid + "' has been updated.");
                 System.out.println("Record updated successfully.");
             } else {
+                Logging.openLog("No account has been updated.");
                 System.out.println("No records updated.");
             }
 

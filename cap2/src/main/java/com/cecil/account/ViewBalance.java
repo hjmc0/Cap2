@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.cecil.connection.Connections;
+import com.cecil.logs.Logging;
 
 public class ViewBalance {
     
@@ -18,6 +19,7 @@ public class ViewBalance {
             System.out.println("================ ACCOUNT BALANCE DETAILS ==============");
             while (r.next()) {
                 exist = true;
+                Logging.openLog("Account with aid '" + aid + "' has its balance viewed.");
                 System.out.println("Account ID      : " + r.getInt("aid"));
                 System.out.println("Name            : " + r.getString("aname"));
                 System.out.println("Email           : " + r.getString("email"));
@@ -28,6 +30,7 @@ public class ViewBalance {
             System.out.println("======================================================");
 
             if(!exist){
+                Logging.openLog("No account has its balance viewed.");
                 System.out.println("Account ID "+ aid +" does not exist!!!");
             }
         } catch (SQLException se) {
