@@ -10,7 +10,7 @@ import com.cecil.logs.Logging;
 public class AddAccount {
         public static void add(String aname, String email, Integer phone, String address, double balance) {
                 try {
-                        String sql = "WITH combinedAccount AS (SELECT aid FROM cap2.account UNION ALL SELECT aid FROM cap2.closedaccount) SELECT MAX(aid) FROM combinedAccount;";
+                        String sql = "WITH combinedAccount AS (SELECT aid FROM account UNION ALL SELECT aid FROM closedaccount) SELECT MAX(aid) FROM combinedAccount;";
                         PreparedStatement pstmt = Connections.openConn().prepareStatement(sql);
 
                         ResultSet s = pstmt.executeQuery();
