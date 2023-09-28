@@ -27,21 +27,28 @@ public class AddAccount {
                         pstmt1.setString(5, address);
                         pstmt1.setDouble(6, balance);
                         pstmt1.setString(7, status);
-                        pstmt1.execute();
 
-                        Logging.openLog("Account with aid '" + aid + "' has been created.");
-                        System.out.println(
-                                        "=========================ACCOUNT CREATED Successfully!===============================");
-                        System.out.println("Name: " + aname);
-                        System.out.println("Account No: " + aid);
-                        System.out.println("Account Status: " + status);
-                        System.out.println("Email: " + email);
-                        System.out.println("Phone No: " + phone);
-                        System.out.println("Address: " + address);
-                        System.out.println("CURRENT BALANCE IN ACCOUNT: $" + balance);
-                        System.out.println(
-                                        "=====================================================================================");
+                        if (aname.equalsIgnoreCase("")) {
+                                Logging.openLog("No account has been created.");
+                                System.out.println("\u001B[31mAccount Holder's Name cannot be null!\u001B[0m");
+                                System.out.println(
+                                                "===============================NO account created!==================================");
+                        } else {
+                                pstmt1.execute();
 
+                                Logging.openLog("Account with aid '" + aid + "' has been created.");
+                                System.out.println(
+                                                "=========================ACCOUNT CREATED Successfully!===============================");
+                                System.out.println("Name: " + aname);
+                                System.out.println("Account No: " + aid);
+                                System.out.println("Account Status: " + status);
+                                System.out.println("Email: " + email);
+                                System.out.println("Phone No: " + phone);
+                                System.out.println("Address: " + address);
+                                System.out.println("CURRENT BALANCE IN ACCOUNT: $" + balance);
+                                System.out.println(
+                                                "=====================================================================================");
+                        }
                 } catch (SQLException e) {
                         e.getMessage();
                 } finally {
