@@ -13,11 +13,14 @@ public class CreateTeller {
 
             pstmt.setString(1, tname);
             pstmt.setString(2, tpass);
+            if (tname.equalsIgnoreCase("admin")) {
+                System.out.println("\u001B[31mCreation of admin is restricted.\u001B[0m");
+            } else {
+                pstmt.execute();
 
-            pstmt.execute();
-
-            System.out.println("=========================TELLER " + tname
-                    + " CREATED Successfully!===============================");
+                System.out.println("=========================TELLER " + tname
+                        + " CREATED Successfully!===============================");
+            }
         } catch (SQLException se) {
             System.out.println(se.getMessage());
         } finally {
