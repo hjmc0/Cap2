@@ -10,11 +10,21 @@ import com.cecil.logs.Logging;
 
 public class ApplicationManager {
     public void execute(String operation) {
+        String reset = "\u001B[0m"; // Reset color
+        String red = "\u001B[31m"; // Red
+        // String green = "\u001B[32m"; // Green
+        String yellow = "\u001B[33m"; // Yellow
+        // String cyan = "\u001B[36m"; // Cyan
+        String bold = "\033[0;1m"; // Bold
+
         operation = operation.toLowerCase();
         String input1, input2, input3, input4;
         Integer input3_int = null;
         switch (operation) {
             case "add":
+                System.out.println(bold+ "---------------------------------------------------------------");
+                System.out.println(yellow+ "========================="+bold+yellow+" ADD ACCOUNT"+reset+yellow+" ========================="+ reset);
+                System.out.println(bold+ "---------------------------------------------------------------" +reset);
                 System.out.print("Enter Account Holder's Name: ");
                 input1 = Application.scan.nextLine();
                 if (input1.equals("q")) {
@@ -55,6 +65,9 @@ public class ApplicationManager {
                 break;
 
             case "modify":
+            System.out.println(bold+"---------------------------------------------------------------"+reset);
+                System.out.println(yellow+ "======================="+bold+yellow+" Modify Account"+reset+yellow+" ======================="+ reset);
+                System.out.println(bold+ "---------------------------------------------------------------"+ reset);
                 int mod_aid;
                 PreparedStatement pstmt;
                 ResultSet r;
@@ -65,7 +78,7 @@ public class ApplicationManager {
                 try {
                     mod_aid = Integer.valueOf(input1);
                 } catch (Exception e) {
-                    System.out.println("Invalid Account Number!");
+                    System.out.println(red+"Invalid Account Number!"+reset);
                     break;
                 }
                 
@@ -115,7 +128,7 @@ public class ApplicationManager {
                                         : input2.equals("2") ? "email"
                                                 : input2.equals("3") ? "phone"
                                                         : input2.equals("4") ? "address" 
-                                                        : input2.equals("5")?" status": "";
+                                                        : input2.equals("5")?"status": "";
 
                                 ModifyAccount.modifyDetails(mod_aid, input2, input3);
                             }
@@ -131,6 +144,9 @@ public class ApplicationManager {
                 break;
 
             case "close":
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
+                System.out.println(yellow+ "========================"+bold+yellow+" CLOSE ACCOUNT"+reset+yellow+" ========================"+ reset);
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
                 System.out.print("Enter Account ID to close: ");
                 input1 = Application.scan.nextLine();
                 if (!input1.equals("q")) {
@@ -142,11 +158,11 @@ public class ApplicationManager {
                     }
                 }
                 break;
-
-            case "deposit":
-                System.out.println("---------------------------------------------------------------");
-                System.out.println("=========================== DEPOSIT ===========================");
-                System.out.println("---------------------------------------------------------------");
+                
+                case "deposit":
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
+                System.out.println(yellow+ "==========================="+bold+yellow+" DEPOSIT"+reset+yellow+" ==========================="+ reset);
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
                 System.out.print("Enter the Account ID: ");
                 input1 = Application.scan.nextLine();
 
@@ -161,9 +177,9 @@ public class ApplicationManager {
 
                 break;
             case "withdraw":
-                System.out.println("---------------------------------------------------------------");
-                System.out.println("=========================== WITHDRAW ===========================");
-                System.out.println("---------------------------------------------------------------");
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
+                System.out.println(yellow+ "==========================="+bold+yellow+" WITHDRAW"+reset+yellow+" =========================="+ reset);
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
                 System.out.print("Enter the Account ID: ");
                 input1 = Application.scan.nextLine();
                 if (!input1.equals("q")) {
@@ -178,6 +194,9 @@ public class ApplicationManager {
                 break;
 
             case "viewbal":
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
+                System.out.println(yellow+ "========================="+bold+yellow+" View Balance"+reset+yellow+" ========================"+ reset);
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
                 System.out.print("Enter Account ID: ");
                 input1 = Application.scan.nextLine();
                 if (!input1.equals("q")) {
@@ -185,12 +204,15 @@ public class ApplicationManager {
                         int view_aid = Integer.valueOf(input1);
                         ViewBalance.view(view_aid);
                     } catch (NumberFormatException ne) {
-                        System.out.println("Invalid Account Number!");
+                        System.out.println(red+ "Invalid Account Number!"+ reset);
                     }
                 }
 
                 break;
             case "viewtranshist":
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
+                System.out.println(yellow+ "====================="+bold+yellow+" Transaction History"+reset+yellow+" ====================="+ reset);
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
                 System.out.print("Enter Account ID: ");
                 input1 = Application.scan.nextLine();
                 if (!input1.equals("q")) {
@@ -198,14 +220,17 @@ public class ApplicationManager {
                         int view_trans_aid = Integer.valueOf(input1);
                         ViewTransHist.viewPastTransactions(view_trans_aid);
                     } catch (NumberFormatException ne) {
-                        System.out.println("Invalid Account Number!");
+                        System.out.println(red+"Invalid Account Number!"+reset);
                     }
                 }
                 break;
             case "viewcloseacc":
-                ViewClosedAccounts.viewCloseAcc();
+                                ViewClosedAccounts.viewCloseAcc();
                 break;
             case "viewcloseth":
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
+                System.out.println(yellow+ "============="+bold+yellow+" Closed Account Transaction History"+reset+yellow+" =============="+ reset);
+                System.out.println(bold+"---------------------------------------------------------------"+reset);
                 System.out.print("Enter Account ID: ");
                 input1 = Application.scan.nextLine();
                 if (!input1.equals("q")) {
@@ -213,7 +238,7 @@ public class ApplicationManager {
                         int view_closetrans_aid = Integer.valueOf(input1);
                         ViewClosedTransHist.viewCloseTransactions(view_closetrans_aid);
                     } catch (NumberFormatException ne) {
-                        System.out.println("Invalid Account Number!");
+                        System.out.println(red+"Invalid Account Number!"+reset);
                     }
                 }
                 break;

@@ -19,7 +19,13 @@ public class ViewAllAccounts {
             String red = "\u001B[31m"; // Red
             String green = "\u001B[32m"; // Green
             String yellow = "\u001B[33m"; // Yellow
-            System.out.printf("%s%-6s | %-10s | %-15s | %-25s | %-15s | %-15s | %14s | %8s %s%n", yellow,
+            String cyan = "\u001B[36m"; // Cyan
+            String bold = "\033[0;1m"; // Bold
+            
+            System.out.println(bold+"----------------------------------------------------------------------------------------------------------------------------------"+reset);
+            System.out.println(yellow+ "=========================================================="+bold+yellow+" ALL ACCOUNT"+reset+yellow+" ==========================================================="+ reset);
+            System.out.println(bold+"----------------------------------------------------------------------------------------------------------------------------------"+reset);
+            System.out.printf("%s%-6s | %-10s | %-15s | %-25s | %-15s | %-15s | %14s | %8s %s%n", bold+cyan,
                     "Index.", "Account ID", "Name", "Email", "Phone Number", "Address", "Account Balance", "Status",
                     reset);
             System.out.println(
@@ -38,6 +44,7 @@ public class ViewAllAccounts {
                 }
                 cnt += 1;
             }
+            System.out.println("----------------------------------------------------------------"+bold+yellow+"END"+reset+"---------------------------------------------------------------");
 
         } catch (SQLException se) {
             System.out.println(se.getMessage());

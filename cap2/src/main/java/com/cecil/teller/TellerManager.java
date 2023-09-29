@@ -20,6 +20,7 @@ public class TellerManager {
             case "login":
                 int tCount = 0;
                 while (tCount < 3) {
+                    System.out.println("----------------------------------------");
                     System.out.print("Enter Teller Name: ");
                     String login_tname = Application.scan.nextLine();
                     char[] login_tpass = console.readPassword("Enter Teller Password: ");

@@ -17,6 +17,7 @@ public class Application {
             System.out.println("Dear Teller, please select from the following options");
             System.out.println("1. Login");
             System.out.println("2. Exit");
+            System.out.print("Select: ");
             scan = new Scanner(System.in);
             String option = scan.nextLine();
             Logging.openLog("Teller chose option " + option + " at login page.");
@@ -36,8 +37,9 @@ public class Application {
         }
         
         while (toContinue) {
+            System.out.println("----------------------------------------");
             System.out.println("Please select from the following options");
-            System.out.println("------------------------------------------");
+            System.out.println("----------------------------------------");
             System.out.println("1. Add Account");
             System.out.println("2. View Accounts");
             System.out.println("3. Modify Account");
@@ -123,8 +125,8 @@ public class Application {
             if (!toContinue) {
                 break;
             }
-
-            System.out.print("Do you want to perform another transaction? (y/n): ");
+            System.out.println("----------------------------------------------");
+            System.out.print("Do you want to go back to main page? (y/n): ");
             String answer = scan.nextLine();
             Logging.openLog("Teller chose option " + answer + " when prompted to perform another transaction.");
             if (answer.equalsIgnoreCase("y")) {
