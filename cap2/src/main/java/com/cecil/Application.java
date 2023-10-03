@@ -35,7 +35,7 @@ public class Application {
                     break;
             }
         }
-        
+
         while (toContinue) {
             System.out.println("----------------------------------------");
             System.out.println("Please select from the following options");
@@ -53,7 +53,7 @@ public class Application {
             System.out.println("11. View Closed Accounts");
             System.out.println("12. View Closed Accounts Transaction History");
             System.out.println("13. Exit");
-                
+
             int choice;
 
             try {
@@ -65,7 +65,7 @@ public class Application {
                 scan.nextLine();
                 continue;
             }
-            
+
             Logging.openLog("Teller chose option " + choice + " at main page.");
             ApplicationManager appmgr = new ApplicationManager();
             TellerManager tellmgr = new TellerManager();
@@ -131,7 +131,10 @@ public class Application {
             Logging.openLog("Teller chose option " + answer + " when prompted to perform another transaction.");
             if (answer.equalsIgnoreCase("y")) {
                 toContinue = true;
+            } else if (answer.equalsIgnoreCase("n")){
+                toContinue = false;
             } else {
+                System.out.println("Invalid Choice. Taking 'n' as an input.");
                 toContinue = false;
             }
         }
