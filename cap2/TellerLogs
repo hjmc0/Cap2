@@ -88,3 +88,107 @@ Sep 28, 2023 3:47:08 PM com.cecil.logs.Logging openLog
 INFO: Account with aid '1' has been updated.
 Sep 28, 2023 3:47:11 PM com.cecil.logs.Logging openLog
 INFO: Teller chose option y when prompted to edit another account field.
+Oct 03, 2023 10:08:10 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Oct 03, 2023 10:08:15 AM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Oct 03, 2023 10:08:20 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 3 at main page.
+Oct 03, 2023 10:08:26 AM com.cecil.logs.Logging openLog
+INFO: No account has been updated.
+Oct 03, 2023 10:13:59 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option n when prompted to edit another account field.
+Oct 03, 2023 10:14:00 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 10:14:06 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 4 at main page.
+Oct 03, 2023 10:14:11 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to delete account with aid 1.
+Oct 03, 2023 10:14:12 AM com.cecil.logs.Logging openLog
+INFO: Account with aid '1' has been deleted.
+Oct 03, 2023 10:14:13 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 10:16:07 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 5 at main page.
+Oct 03, 2023 10:16:16 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 10:16:18 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 5 at main page.
+Oct 03, 2023 10:17:20 AM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been deposited with $500.0.
+Oct 03, 2023 10:17:57 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 10:17:58 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 6 at main page.
+Oct 03, 2023 10:18:09 AM com.cecil.logs.Logging openLog
+INFO: Account with aid '3' has been withdrawn by $500.0.
+Oct 03, 2023 10:18:11 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 10:18:12 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 6 at main page.
+Oct 03, 2023 10:19:07 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 10:19:08 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 7 at main page.
+Oct 03, 2023 10:19:11 AM com.cecil.logs.Logging openLog
+INFO: Account with aid '2' has its balance viewed.
+Oct 03, 2023 11:26:22 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 11:26:38 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 8 at main page.
+Oct 03, 2023 11:26:41 AM com.cecil.logs.Logging openLog
+INFO: Account with aid '2' has its transactions viewed.
+Oct 03, 2023 11:26:41 AM com.cecil.logs.Logging openLog
+INFO: No account has its transactions viewed.
+Oct 03, 2023 11:35:18 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 11:35:21 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 9 at main page.
+Oct 03, 2023 11:37:09 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 11:37:13 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 9 at main page.
+Oct 03, 2023 11:37:19 AM com.cecil.logs.Logging openLog
+INFO: Teller 'admin1' has been created.
+Oct 03, 2023 11:37:49 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 11:37:52 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 10 at main page.
+Oct 03, 2023 11:37:57 AM com.cecil.logs.Logging openLog
+INFO: Teller 'admin1' has been deleted.
+Oct 03, 2023 11:37:59 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 11:38:02 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 10 at main page.
+Oct 03, 2023 11:38:05 AM com.cecil.logs.Logging openLog
+INFO: Teller has attempted to delete Teller 'admin'
+Oct 03, 2023 11:39:17 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 11:39:19 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 11 at main page.
+Oct 03, 2023 11:39:19 AM com.cecil.logs.Logging openLog
+INFO: All closed accounts were viewed by Teller.
+Oct 03, 2023 11:46:55 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 11:46:58 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 12 at main page.
+Oct 03, 2023 11:47:07 AM com.cecil.logs.Logging openLog
+INFO: Closed account with aid '1' has its transactions viewed.
+Oct 03, 2023 11:47:07 AM com.cecil.logs.Logging openLog
+INFO: No closed account has its transactions viewed.
+Oct 03, 2023 11:47:47 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 11:47:50 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 13 at main page.
+Oct 03, 2023 11:48:24 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 1 at login page.
+Oct 03, 2023 11:48:28 AM com.cecil.logs.Logging openLog
+INFO: Teller 'admin' has logged in.
+Oct 03, 2023 11:48:29 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 112 at main page.
+Oct 03, 2023 11:48:32 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
+Oct 03, 2023 11:49:55 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option 23 at main page.
+Oct 03, 2023 11:49:57 AM com.cecil.logs.Logging openLog
+INFO: Teller chose option y when prompted to perform another transaction.
